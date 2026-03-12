@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Magnetic from "./animations/Magnetic";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,8 +27,8 @@ export default function Navbar() {
         animate={{ y: 0 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isScrolled
-            ? "bg-obsidian/75 backdrop-blur-xl border-white/5 py-4 shadow-2xl shadow-obsidian/50"
-            : "bg-transparent border-transparent py-8"
+          ? "bg-obsidian/75 backdrop-blur-xl border-white/5 py-4 shadow-2xl shadow-obsidian/50"
+          : "bg-transparent border-transparent py-8"
           }`}
       >
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -49,24 +50,29 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10">
             {["Expertise", "Results", "The Firm", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className={`text-xs uppercase tracking-[0.15em] transition-colors duration-300 relative group ${isScrolled ? 'text-alabaster-muted hover:text-white' : 'text-white/80 hover:text-white'}`}
-              >
-                {item}
-                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-champagne transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              <React.Fragment key={item}>
+                <Magnetic intensity={0.15}>
+                  <a
+                    href={`#${item.toLowerCase().replace(" ", "-")}`}
+                    className={`text-xs uppercase tracking-[0.15em] transition-colors duration-300 relative group block ${isScrolled ? 'text-alabaster-muted hover:text-white' : 'text-white/80 hover:text-white'}`}
+                  >
+                    {item}
+                    <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-champagne transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </Magnetic>
+              </React.Fragment>
             ))}
-            <a
-              href="#contact"
-              className={`px-7 py-3 text-xs uppercase tracking-[0.2em] transition-all duration-500 ${isScrolled
+            <Magnetic intensity={0.2}>
+              <a
+                href="#contact"
+                className={`px-7 py-3 text-xs uppercase tracking-[0.2em] transition-all duration-500 block ${isScrolled
                   ? "bg-champagne text-obsidian hover:bg-white"
                   : "bg-white text-obsidian hover:bg-champagne hover:text-white"
-                }`}
-            >
-              Consultation
-            </a>
+                  }`}
+              >
+                Consultation
+              </a>
+            </Magnetic>
           </div>
 
           {/* Mobile Menu Toggle */}

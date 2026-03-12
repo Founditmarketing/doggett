@@ -23,7 +23,18 @@ const practices = [
 
 export default function PracticeAreas() {
   return (
-    <section id="expertise" className="py-32 bg-obsidian relative border-y border-white/5 overflow-hidden">
+    <section id="expertise" className="py-32 bg-alabaster relative border-y border-obsidian/5 overflow-hidden">
+
+      {/* Liquid SVG Filter Definition */}
+      <svg style={{ width: 0, height: 0, position: 'absolute' }}>
+        <filter id="liquid" colorInterpolationFilters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise">
+            <animate attributeName="baseFrequency" values="0.015;0.02;0.015" duration="8s" repeatCount="indefinite" />
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
 
@@ -47,7 +58,7 @@ export default function PracticeAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-1.1 text-white"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-1.1 text-obsidian"
             >
               Our Singular <br />
               <span className="italic text-champagne w-fit relative">
@@ -68,7 +79,7 @@ export default function PracticeAreas() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="hidden lg:block w-64 text-sm text-alabaster-muted font-light leading-relaxed"
+            className="hidden lg:block w-64 text-sm text-obsidian/70 font-light leading-relaxed"
           >
             We don't dabble. We maintain strict focus on high-stakes litigation across three distinct areas of law.
           </motion.div>
@@ -82,22 +93,27 @@ export default function PracticeAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative h-[500px] overflow-hidden bg-obsidian border border-white/5 hover:border-champagne/30 transition-all duration-500 cursor-pointer"
+              className="group relative h-[500px] overflow-hidden bg-white/[0.03] border border-white/10 hover:border-champagne/40 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer shadow-2xl"
             >
               {/* Image Background */}
-              <div className="absolute inset-0 bg-obsidian z-0 transition-opacity duration-700 group-hover:opacity-100 opacity-0">
-                <img src={practice.image} alt={practice.title} className="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-110 group-hover:scale-100 transition-transform duration-[2s]" />
+              <div className="absolute inset-0 bg-obsidian z-0 transition-opacity duration-700 group-hover:opacity-100 opacity-0 overflow-hidden">
+                <img
+                  src={practice.image}
+                  alt={practice.title}
+                  style={{ filter: "url(#liquid)" }}
+                  className="w-full h-full object-cover opacity-40 mix-blend-luminosity scale-125 group-hover:scale-110 transition-transform duration-[2s]"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-obsidian/20"></div>
               </div>
 
               {/* Content */}
               <div className="relative z-10 p-10 h-full flex flex-col justify-between">
                 <div>
-                  <div className="text-champagne/40 font-serif text-5xl mb-12 group-hover:text-champagne transition-colors duration-500 group-hover:-translate-y-2 transform">
+                  <div className="text-champagne/60 font-serif text-5xl mb-12 group-hover:text-champagne transition-colors duration-500 group-hover:-translate-y-2 transform">
                     {practice.icon}
                   </div>
-                  <h3 className="text-2xl font-serif mb-6 text-white group-hover:text-champagne transition-colors duration-300">{practice.title}</h3>
-                  <p className="text-alabaster-muted font-light leading-relaxed text-sm group-hover:text-alabaster transition-colors duration-300 line-clamp-4">
+                  <h3 className="text-2xl font-serif mb-6 text-obsidian group-hover:text-white transition-colors duration-300">{practice.title}</h3>
+                  <p className="text-obsidian/70 font-light leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300 line-clamp-4">
                     {practice.description}
                   </p>
                 </div>
