@@ -26,8 +26,8 @@ export default function Hero() {
           <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent z-10" />
           <img
-            src="/assets/imminent_strike_gavel_hero.png"
-            alt="Imminent Strike Legal Gavel"
+            src="/assets/lady_justice_macro_hero.png"
+            alt="Blind Justice Statue"
             className="w-full h-full object-cover object-center scale-105"
             referrerPolicy="no-referrer"
           />
