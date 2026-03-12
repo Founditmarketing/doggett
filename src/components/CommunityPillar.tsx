@@ -20,16 +20,21 @@ export default function CommunityPillar() {
           <div className="w-[100vw] h-full flex items-center justify-center px-6 md:px-12 lg:px-24">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full max-w-screen-2xl mx-auto">
 
-              <div className="relative h-[40vh] md:h-[60vh] lg:h-[70vh] w-full">
-                <div className="absolute inset-0 overflow-hidden shadow-2xl">
-                  <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10 border border-white/5"></div>
-                  <img
-                    src="/assets/community_pillar_architecture_1773349791397.png"
-                    alt="Alexandria Louisiana Architecture"
-                    className="w-full h-full object-cover grayscale opacity-90"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
+              {/* Stacking Images Container */}
+              <div className="relative w-full aspect-[4/5] max-w-lg mx-auto md:ml-auto md:mr-0 z-20">
+
+                <motion.div
+                  className="absolute top-0 left-0 w-full h-full shadow-2xl"
+                >
+                  <div className="w-full h-full border border-champagne/20 relative overflow-hidden group">
+                    <img
+                      src="/assets/alexandria_la_courthouse_detail.png"
+                      alt="Alexandria LA Courthouse Architecture"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </motion.div>
 
                 <div className="absolute -bottom-8 -right-8 w-48 h-48 md:w-64 md:h-64 bg-obsidian border border-white/10 p-8 md:p-10 hidden sm:flex flex-col justify-center shadow-2xl z-20">
                   <span className="text-champagne text-5xl md:text-6xl font-serif mb-4 leading-none">30+</span>

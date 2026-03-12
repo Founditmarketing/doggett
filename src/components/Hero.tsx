@@ -21,14 +21,17 @@ export default function Hero() {
         style={{ y: y1, scale, opacity }}
         className="absolute inset-0 z-0 origin-bottom"
       >
-        <div className="absolute inset-0 bg-obsidian/70 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-20" />
-        <img
-          src="/assets/premium_law_office_hero_1773349687568.png"
-          alt="Luxury Law Office"
-          className="w-full h-full object-cover opacity-80"
-          referrerPolicy="no-referrer"
-        />
+        {/* Video/Image Background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent z-10" />
+          <img
+            src="/assets/alexandria_la_hero_bridge.png"
+            alt="Alexandria LA Bridge Background"
+            className="w-full h-full object-cover object-center scale-105"
+            referrerPolicy="no-referrer"
+          />
+        </div>
       </motion.div>
 
       {/* Content */}
