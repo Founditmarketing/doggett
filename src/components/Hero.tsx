@@ -30,6 +30,7 @@ export default function Hero() {
             alt="Blind Justice Statue"
             className="w-full h-full object-cover object-center scale-105"
             referrerPolicy="no-referrer"
+            fetchPriority="high"
           />
         </div>
       </motion.div>

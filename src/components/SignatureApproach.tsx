@@ -25,6 +25,7 @@ export default function SignatureApproach() {
                 alt="Elite Attorney"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] scale-105 hover:scale-100"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
 
@@ -41,6 +42,7 @@ export default function SignatureApproach() {
                 alt="Legal Document"
                 className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-110"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </motion.div>
 
@@ -112,6 +114,7 @@ export default function SignatureApproach() {
                 alt="Signature"
                 className="h-16 opacity-30 invert transition-opacity duration-500 hover:opacity-80"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-alabaster/40 font-medium">Kenneth A. Doggett, Jr.</p>
             </motion.div>

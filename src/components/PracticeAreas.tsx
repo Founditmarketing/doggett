@@ -110,6 +110,7 @@ export default function PracticeAreas() {
                   alt={practice.title}
                   style={{ filter: "url(#liquid)" }}
                   className="w-full h-full object-cover opacity-40 mix-blend-luminosity scale-125 group-hover:scale-110 transition-transform duration-[2s]"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-obsidian/20"></div>
               </div>
@@ -167,6 +168,7 @@ export default function PracticeAreas() {
                   src={selectedPractice.image}
                   alt={selectedPractice.title}
                   className="w-full h-full object-cover scale-105"
+                  loading="lazy"
                 />
               </div>
 
