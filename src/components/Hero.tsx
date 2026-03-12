@@ -26,8 +26,8 @@ export default function Hero() {
           <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10" />
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent z-10" />
           <img
-            src="/assets/alexandria_la_hero_bridge.png"
-            alt="Alexandria LA Bridge Background"
+            src="/assets/war_room_aftermath_hero.png"
+            alt="Elite Legal War Room"
             className="w-full h-full object-cover object-center scale-105"
             referrerPolicy="no-referrer"
           />
