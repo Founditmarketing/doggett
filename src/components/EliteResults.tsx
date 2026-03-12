@@ -1,12 +1,42 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useInView, animate } from "motion/react";
+import { useRef, useEffect, useState } from "react";
 
 const victories = [
-  { amount: "$4.2M", type: "Personal Injury", detail: "Commercial Trucking Collision" },
-  { amount: "Secured", type: "Family Law", detail: "High-Net-Worth Asset Division" },
-  { amount: "$1.8M", type: "Personal Injury", detail: "Workplace Negligence" },
-  { amount: "Resolved", type: "Succession", detail: "Complex Multi-Generational Estate" },
+  { amount: 4200000, prefix: "$", suffix: "M", formatted: "4.2M", type: "Personal Injury", detail: "Commercial Trucking Collision", description: "Secured after demonstrating catastrophic mechanical failure ignored by corporate safety protocols." },
+  { amount: 0, prefix: "", suffix: "Secured", formatted: "Secured", type: "Family Law", detail: "High-Net-Worth Asset Division", description: "Successfully shielded multi-generational family business assets from aggressive antagonistic claims." },
+  { amount: 1800000, prefix: "$", suffix: "M", formatted: "1.8M", type: "Personal Injury", detail: "Workplace Negligence", description: "Obtained maximum policy limits prior to trial initiation due to overwhelming biomechanical evidence." },
+  { amount: 0, prefix: "", suffix: "Resolved", formatted: "Resolved", type: "Succession", detail: "Complex Multi-Generational Estate", description: "Dismantled fraudulent heir objections and preserved the integrity of the original aristocratic estate plan." },
 ];
+
+function Counter({ from, to, prefix, suffix, formatted }: { from: number, to: number, prefix: string, suffix: string, formatted: string }) {
+  const nodeRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const node = nodeRef.current;
+    if (!node) return;
+
+    if (to === 0) {
+      node.textContent = `${prefix}${suffix}`;
+      return;
+    }
+
+    const controls = animate(from, to, {
+      duration: 2.5,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate(value) {
+        if (value > 1000000) {
+          node.textContent = `${prefix}${(value / 1000000).toFixed(1)}M`;
+        } else {
+          node.textContent = `${prefix}${Math.round(value).toLocaleString()}`;
+        }
+      },
+    });
+
+    return () => controls.stop();
+  }, [from, to, prefix, suffix, formatted]);
+
+  return <h3 ref={nodeRef} className="text-4xl md:text-5xl xl:text-6xl font-serif text-white mb-6 group-hover:text-champagne transition-colors duration-700 relative z-10" />;
+}
 
 export default function EliteResults() {
   const containerRef = useRef(null);
@@ -61,27 +91,66 @@ export default function EliteResults() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {victories.map((victory, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-panel p-12 flex flex-col justify-center items-center text-center group hover:bg-white/5 transition-all duration-700 relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-champagne/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          {victories.map((victory, index) => {
+            const cardRef = useRef(null);
+            const isInView = useInView(cardRef, { once: true, margin: "-100px" });
+            const [isHovered, setIsHovered] = useState(false);
 
-              <h3 className="text-4xl md:text-5xl xl:text-6xl font-serif text-white mb-6 group-hover:text-champagne group-hover:scale-110 transition-all duration-700 transform relative z-10">
-                {victory.amount}
-              </h3>
+            return (
+              <motion.div
+                key={index}
+                ref={cardRef}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.8, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="glass-panel p-10 flex flex-col justify-center items-center text-center group transition-all duration-700 relative overflow-hidden h-[360px] cursor-default border border-white/5 hover:border-champagne/30 bg-obsidian/80 backdrop-blur-sm"
+              >
+                {/* Background Hover Reveal */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-b from-champagne/10 to-transparent transition-opacity duration-700"
+                  style={{ opacity: isHovered ? 1 : 0 }}
+                />
 
-              <div className="w-8 h-[1px] bg-white/20 mb-6 group-hover:bg-champagne group-hover:w-16 transition-all duration-500 relative z-10"></div>
+                {/* Number Section */}
+                <motion.div
+                  animate={{ y: isHovered ? -20 : 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full flex flex-col items-center"
+                >
+                  {isInView ? (
+                    <Counter
+                      from={0}
+                      to={victory.amount}
+                      prefix={victory.prefix}
+                      suffix={victory.suffix}
+                      formatted={victory.formatted}
+                    />
+                  ) : (
+                    <h3 className="text-4xl md:text-5xl xl:text-6xl font-serif text-white mb-6 opacity-0">0</h3>
+                  )}
 
-              <p className="text-[10px] uppercase tracking-[0.2em] text-alabaster/80 mb-3 relative z-10">{victory.type}</p>
-              <p className="text-xs font-serif italic text-alabaster-muted relative z-10">{victory.detail}</p>
-            </motion.div>
-          ))}
+                  <div className="w-8 h-[1px] bg-white/20 mb-6 group-hover:bg-champagne group-hover:w-16 transition-all duration-500 relative z-10" />
+
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-alabaster/80 mb-3 relative z-10">{victory.type}</p>
+                  <p className="text-xs font-serif italic text-alabaster-muted relative z-10">{victory.detail}</p>
+                </motion.div>
+
+                {/* Expanded Story (Revealed on Hover) */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 20 }}
+                  transition={{ duration: 0.5, delay: isHovered ? 0.1 : 0, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute bottom-8 left-0 w-full px-8 text-xs text-alabaster-muted leading-relaxed font-light"
+                >
+                  <span className="w-6 h-[1px] bg-champagne/50 block mx-auto mb-4" />
+                  {victory.description}
+                </motion.div>
+
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

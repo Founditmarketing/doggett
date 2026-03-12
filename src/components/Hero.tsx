@@ -1,7 +1,43 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState, useMemo } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
+import * as random from "maath/random/dist/maath-random.esm";
 import SplitText from "./animations/SplitText";
 import Magnetic from "./animations/Magnetic";
+
+function Starfield(props: any) {
+  const ref = useRef<any>();
+
+  // Generate a spherical distribution of 5,000 points
+  const sphere = useMemo(() => {
+    const float32Array = new Float32Array(5000 * 3);
+    random.inSphere(float32Array, { radius: 1.5 });
+    return float32Array;
+  }, []);
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x -= delta / 15;
+      ref.current.rotation.y -= delta / 20;
+    }
+  });
+
+  return (
+    <group rotation={[0, 0, Math.PI / 4]}>
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+        <PointMaterial
+          transparent
+          color="#d4af37" // Champagne gold
+          size={0.005}
+          sizeAttenuation={true}
+          depthWrite={false}
+          opacity={0.6}
+        />
+      </Points>
+    </group>
+  );
+}
 
 export default function Hero() {
   const containerRef = useRef(null);
@@ -16,15 +52,22 @@ export default function Hero() {
 
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-obsidian">
-      {/* Background with Parallax */}
+      {/* Background with Parallax and WebGL */}
       <motion.div
         style={{ y: y1, scale, opacity }}
         className="absolute inset-0 z-0 origin-bottom"
       >
+        {/* WebGL Particle Canvas (Behind the image base, or overlaid slightly if desired) */}
+        <div className="absolute inset-0 z-20 mix-blend-screen opacity-50 pointer-events-none">
+          <Canvas camera={{ position: [0, 0, 1] }}>
+            <Starfield />
+          </Canvas>
+        </div>
+
         {/* Video/Image Background */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/50 to-transparent z-10" />
+          <div className="absolute inset-0 bg-obsidian/50 mix-blend-multiply z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent z-10" />
           <img
             src="/assets/lady_justice_macro_hero.png"
             alt="Blind Justice Statue"
