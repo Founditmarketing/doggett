@@ -16,8 +16,8 @@ export default function CommunityPillar() {
             <div className="absolute inset-0 overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10 transition-opacity duration-1000 hover:opacity-0 border border-white/5"></div>
               <img
-                src="https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1200&auto=format&fit=crop"
-                alt="Alexandria Louisiana"
+                src="/assets/community_pillar_architecture_1773349791397.png"
+                alt="Alexandria Louisiana Architecture"
                 className="w-full h-full object-cover grayscale opacity-90 hover:grayscale-0 transition-all duration-[2s] scale-105 hover:scale-100"
                 referrerPolicy="no-referrer"
               />

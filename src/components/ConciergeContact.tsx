@@ -43,7 +43,7 @@ export default function ConciergeContact() {
   return (
     <section id="contact" className="py-32 md:py-48 bg-obsidian relative overflow-hidden">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-luminosity"></div>
+      <div className="absolute inset-0 bg-[url('/assets/contact_confidential_setting_1773349805860.png')] bg-cover bg-center opacity-10 mix-blend-luminosity"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent"></div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
@@ -177,8 +177,8 @@ export default function ConciergeContact() {
                         key={type}
                         onClick={() => setFormData({ ...formData, inquiryType: type })}
                         className={`py-8 px-6 border transition-all duration-300 flex flex-col items-center justify-center gap-4 group ${formData.inquiryType === type
-                            ? "border-champagne bg-champagne/5 text-champagne"
-                            : "border-white/10 text-alabaster-muted hover:border-white/30 hover:text-white"
+                          ? "border-champagne bg-champagne/5 text-champagne"
+                          : "border-white/10 text-alabaster-muted hover:border-white/30 hover:text-white"
                           }`}
                       >
                         <div className={`w-2 h-2 rounded-full transition-colors ${formData.inquiryType === type ? 'bg-champagne' : 'bg-transparent border border-white/20 group-hover:border-white/50'}`}></div>

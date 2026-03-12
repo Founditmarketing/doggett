@@ -21,8 +21,8 @@ export default function SignatureApproach() {
             <div className="absolute top-0 left-0 w-3/4 h-3/4 overflow-hidden shadow-2xl z-10">
               <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
               <img
-                src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop"
-                alt="Legal Library"
+                src="/assets/elite_attorney_portrait_1773349709984.png"
+                alt="Elite Attorney"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] scale-105 hover:scale-100"
                 referrerPolicy="no-referrer"
               />
@@ -37,9 +37,9 @@ export default function SignatureApproach() {
             >
               <div className="absolute inset-0 bg-obsidian/30 mix-blend-multiply z-10"></div>
               <img
-                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
+                src="/assets/signature_approach_detail_1773349721313.png"
                 alt="Legal Document"
-                className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-110 sepia-[.3]"
+                className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-110"
                 referrerPolicy="no-referrer"
               />
             </motion.div>

@@ -5,19 +5,19 @@ const practices = [
     title: "Personal Injury",
     description: "If you are hurt in an accident or through negligence, things change in a split second. You shouldn't have to navigate this alone. We meticulously build your case to ensure maximum recovery while you focus entirely on healing.",
     icon: "I",
-    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=800&auto=format&fit=crop"
+    image: "/assets/practice_personal_injury_1773349744037.png"
   },
   {
     title: "Family Law",
     description: "Divorce, custody, and property division require both aggressive advocacy and strategic foresight. We provide discreet, powerful representation to protect your assets, your children, and your peace of mind during pivotal transitions.",
     icon: "II",
-    image: "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?q=80&w=800&auto=format&fit=crop"
+    image: "/assets/practice_family_law_1773349757645.png"
   },
   {
     title: "Succession Litigation",
     description: "Protecting a legacy requires uncompromising legal strategies. We handle complex estate disputes, successions, and wealth preservation matters, ensuring your family's assets and final wishes are fiercely defended in court.",
     icon: "III",
-    image: "https://images.unsplash.com/photo-1520188740392-6ebbf4ea0fa6?q=80&w=800&auto=format&fit=crop"
+    image: "/assets/practice_succession_1773349772080.png"
   }
 ];
 
