@@ -3,19 +3,19 @@ import { motion } from "motion/react";
 const practices = [
   {
     title: "Personal Injury",
-    description: "If you are hurt in an accident or through negligence, things change in a split second. You shouldn't have to navigate this alone. We meticulously build your case to ensure maximum recovery while you focus entirely on healing.",
+    description: "If you are hurt in a car wreck or any other way through someone else’s carelessness, things can change in a split second. We believe you shouldn’t have to go through this alone.",
     icon: "I",
     image: "/assets/practice_personal_injury_1773349744037.png"
   },
   {
     title: "Family Law",
-    description: "Divorce, custody, and property division require both aggressive advocacy and strategic foresight. We provide discreet, powerful representation to protect your assets, your children, and your peace of mind during pivotal transitions.",
+    description: "When a couple separates or divorces, the law governs custody, support, and the division of marital property and debt. We are ready to assist you through these critical procedures.",
     icon: "II",
     image: "/assets/practice_family_law_1773349757645.png"
   },
   {
-    title: "Succession Litigation",
-    description: "Protecting a legacy requires uncompromising legal strategies. We handle complex estate disputes, successions, and wealth preservation matters, ensuring your family's assets and final wishes are fiercely defended in court.",
+    title: "Succession Law",
+    description: "Creating an estate plan can save your family the burden of making important decisions after you pass away. Having a plan ensures your wishes regarding assets are followed.",
     icon: "III",
     image: "/assets/practice_succession_1773349772080.png"
   }
@@ -23,7 +23,7 @@ const practices = [
 
 export default function PracticeAreas() {
   return (
-    <section id="expertise" className="py-32 bg-alabaster relative border-y border-obsidian/5 overflow-hidden">
+    <section id="expertise" className="py-32 bg-obsidian relative border-y border-white/5 overflow-hidden">
 
       {/* Liquid SVG Filter Definition */}
       <svg style={{ width: 0, height: 0, position: 'absolute' }}>
@@ -58,7 +58,7 @@ export default function PracticeAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-1.1 text-obsidian"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-1.1 text-white"
             >
               Our Singular <br />
               <span className="italic text-champagne w-fit relative">
@@ -79,7 +79,7 @@ export default function PracticeAreas() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="hidden lg:block w-64 text-sm text-obsidian/70 font-light leading-relaxed"
+            className="hidden lg:block w-64 text-sm text-alabaster-muted font-light leading-relaxed"
           >
             We don't dabble. We maintain strict focus on high-stakes litigation across three distinct areas of law.
           </motion.div>
@@ -109,11 +109,11 @@ export default function PracticeAreas() {
               {/* Content */}
               <div className="relative z-10 p-10 h-full flex flex-col justify-between">
                 <div>
-                  <div className="text-champagne/60 font-serif text-5xl mb-12 group-hover:text-champagne transition-colors duration-500 group-hover:-translate-y-2 transform">
+                  <div className="text-champagne/40 font-serif text-5xl mb-12 group-hover:text-champagne transition-colors duration-500 group-hover:-translate-y-2 transform">
                     {practice.icon}
                   </div>
-                  <h3 className="text-2xl font-serif mb-6 text-obsidian group-hover:text-white transition-colors duration-300">{practice.title}</h3>
-                  <p className="text-obsidian/70 font-light leading-relaxed text-sm group-hover:text-white/90 transition-colors duration-300 line-clamp-4">
+                  <h3 className="text-2xl font-serif mb-6 text-white group-hover:text-champagne transition-colors duration-300">{practice.title}</h3>
+                  <p className="text-alabaster/90 font-light leading-relaxed text-sm group-hover:text-white transition-colors duration-300 line-clamp-4">
                     {practice.description}
                   </p>
                 </div>

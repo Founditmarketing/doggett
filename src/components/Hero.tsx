@@ -47,7 +47,7 @@ export default function Hero() {
 
         <div className="overflow-hidden mb-6 py-2 flex flex-col items-center">
           <SplitText
-            text="A Legacy of Resolve."
+            text="Fewer words, more work."
             delay={0.3}
             className="text-5xl md:text-7xl lg:text-[7rem] font-serif font-light leading-[1] max-w-6xl tracking-tight text-white justify-center"
           />
@@ -59,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-base md:text-lg text-alabaster-muted max-w-2xl font-light mb-16 leading-loose"
         >
-          Uncompromising legal representation tailored for the most demanding cases. When the stakes are ultimate, our precision is absolute.
+          Advocating fiercely for our clients in all Personal Injury, Family, and Succession matters, from beginning to end.
         </motion.p>
 
         <motion.div

@@ -25,7 +25,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-alabaster-muted leading-relaxed font-light mb-8 max-w-sm">
-              World-class legal representation rooted in Alexandria, Louisiana. Protecting legacies, defending families, and forging futures with absolute resolve since inception.
+              Doggett Law is a local third generation law practice that provides quality legal representation throughout all of CENLA.
             </p>
             <a
               href="tel:3188883644"
@@ -78,9 +78,9 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] uppercase tracking-widest text-alabaster-muted/50 font-light">
           <p>&copy; {new Date().getFullYear()} Doggett Law Firm. All Rights Reserved.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-champagne transition-colors">Privacy</a>
-            <a href="#" className="hover:text-champagne transition-colors">Terms</a>
-            <a href="#" className="hover:text-champagne transition-colors">Disclaimer</a>
+            <a href="https://www.linkedin.com/in/kenneth-doggett-54036720a/" target="_blank" rel="noreferrer" className="hover:text-champagne transition-colors">LinkedIn</a>
+            <a href="https://www.facebook.com/doggettlaw" target="_blank" rel="noreferrer" className="hover:text-champagne transition-colors">Facebook</a>
+            <a href="https://www.instagram.com/kennethadoggett/" target="_blank" rel="noreferrer" className="hover:text-champagne transition-colors">Instagram</a>
           </div>
         </div>
       </div>

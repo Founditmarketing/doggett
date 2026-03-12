@@ -50,7 +50,7 @@ export default function CommunityPillar() {
                 </h2>
 
                 <p className="text-alabaster-muted font-light leading-relaxed max-w-md text-sm md:text-base">
-                  Doggett Law Firm is deeply ingrained in the architecture of Central Louisiana's legal landscape. Keep scrolling to uncover our narrative.
+                  Doggett Law Firm is a local third generation law practice that provides quality legal representation throughout all of CENLA.
                 </p>
               </div>
 
@@ -64,22 +64,22 @@ export default function CommunityPillar() {
 
             <div className="max-w-4xl mx-auto w-full relative z-10">
               <SplitText
-                text="Deep Roots."
+                text="Local Service."
                 delay={0}
                 className="text-5xl md:text-6xl lg:text-8xl font-serif font-light mb-2 text-white leading-[1]"
               />
               <SplitText
-                text="Absolute Power."
+                text="Proven Track Record."
                 delay={0}
                 className="text-5xl md:text-6xl lg:text-8xl font-serif font-light mb-16 text-champagne italic leading-[1]"
               />
 
               <div className="space-y-8 text-alabaster/80 font-light leading-relaxed text-sm md:text-base lg:text-lg columns-1 md:columns-2 gap-16 border-l border-champagne/30 pl-8">
                 <p>
-                  As a third-generation practice, we provide a tier of elite legal representation rarely accessible outside major metropolitan centers. Operating from Alexandria, we have fiercely defended and advanced the interests of our clients across Rapides Parish and the entirety of CENLA for over three decades.
+                  Our office is located in Alexandria, Louisiana. We have been serving Rapides Parish and surrounding areas for over thirty years. Whether you’re injured, going through a divorce, or struggling with your estate planning, we customize our support to your individual needs.
                 </p>
                 <p>
-                  This unique synthesis of extremely high-stakes legal acumen inside the courtroom, and our profound, generational regional insight outside of it, provides our clients with an unparalleled advantage. We exist solely to protect your legacy.
+                  We give special attention to your case and make sure you do not fall victim to opposing counsel or parties’ short-sided moves. We keep a solid track record of maintaining contact with our clients, ensuring you are never left in the dark.
                 </p>
               </div>
 

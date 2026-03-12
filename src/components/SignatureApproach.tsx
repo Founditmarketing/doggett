@@ -2,10 +2,10 @@ import { motion } from "motion/react";
 
 export default function SignatureApproach() {
   return (
-    <section id="the-firm" className="py-32 md:py-48 bg-alabaster relative overflow-hidden">
+    <section id="the-firm" className="py-32 md:py-48 bg-obsidian relative overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-[800px] bg-gradient-to-b from-champagne/10 to-transparent blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-[500px] bg-gradient-to-t from-black/5 to-transparent blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/3 h-[800px] bg-gradient-to-b from-champagne/5 to-transparent blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-[500px] bg-gradient-to-t from-white/5 to-transparent blur-[100px] pointer-events-none" />
 
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
@@ -19,7 +19,7 @@ export default function SignatureApproach() {
             className="lg:col-span-6 relative h-[600px] md:h-[800px] w-full"
           >
             <div className="absolute top-0 left-0 w-3/4 h-3/4 overflow-hidden shadow-2xl z-10">
-              <div className="absolute inset-0 bg-white/10 mix-blend-overlay z-10 border border-obsidian/5"></div>
+              <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
               <img
                 src="/assets/elite_attorney_portrait_1773349709984.png"
                 alt="Elite Attorney"
@@ -33,9 +33,9 @@ export default function SignatureApproach() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute bottom-0 right-0 w-2/3 h-2/3 overflow-hidden shadow-2xl z-20 border-l-[8px] border-t-[8px] border-alabaster"
+              className="absolute bottom-0 right-0 w-2/3 h-2/3 overflow-hidden shadow-2xl z-20 border-l-4 border-t-4 border-obsidian"
             >
-              <div className="absolute inset-0 bg-white/10 mix-blend-overlay z-10"></div>
+              <div className="absolute inset-0 bg-obsidian/30 mix-blend-multiply z-10"></div>
               <img
                 src="/assets/signature_approach_detail_1773349721313.png"
                 alt="Legal Document"
@@ -67,20 +67,20 @@ export default function SignatureApproach() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-[1.1] mb-12 text-obsidian"
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-[1.1] mb-12 text-white"
             >
               Direct Access to <br />
               <span className="italic text-champagne relative z-10">Elite Counsel.</span>
             </motion.h2>
 
-            <div className="space-y-8 text-obsidian/70 font-light leading-relaxed text-sm md:text-base">
+            <div className="space-y-8 text-alabaster-muted font-light leading-relaxed text-sm md:text-base">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               >
-                At Doggett Law, we actively reject the volume-based model of traditional legal practice. Operating as a boutique firm by design ensures that every client receives obsessive attention to detail and direct, unfiltered access to their lead attorney.
+                Headquartered in Alexandria, Louisiana, Doggett Law represents personal injury, family, and succession clients. Our firm specializes in all matters, from beginning to end.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export default function SignatureApproach() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
               >
-                As a third-generation law practice, we bring extensive experience and ruthless professionalism to every case. Our attorneys have handled matters from pre-suit negotiation through filing writs with the Supreme Court. We insulate our clients from opposing counsel's short-sighted tactics.
+                Our attorneys have been practicing for decades and have experience in every stage of your case. That means you get an attorney who has handled cases from pre-suit all the way to filing a writ with the Supreme Court.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -96,7 +96,7 @@ export default function SignatureApproach() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
-                Whether you're injured, navigating a divorce, or solidifying your legacy through estate planning, your strategy is custom-built. We serve strictly as your steadfast advocates.
+                Our attorneys make themselves available to speak with you directly about your case. We firmly reject the volume-based model, ensuring you receive the personal attention necessary to protect your best interests.
               </motion.p>
             </div>
 
@@ -105,15 +105,15 @@ export default function SignatureApproach() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, delay: 0.8 }}
-              className="mt-16 pt-8 border-t border-obsidian/10"
+              className="mt-16 pt-8 border-t border-white/10"
             >
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Signature_of_John_Hancock.svg/1200px-Signature_of_John_Hancock.svg.png"
                 alt="Signature"
-                className="h-16 opacity-80 transition-opacity duration-500 hover:opacity-100"
+                className="h-16 opacity-30 invert transition-opacity duration-500 hover:opacity-80"
                 referrerPolicy="no-referrer"
               />
-              <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-obsidian/40 font-medium">Kenneth A. Doggett, Jr.</p>
+              <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-alabaster/40 font-medium">Kenneth A. Doggett, Jr.</p>
             </motion.div>
           </div>
 
