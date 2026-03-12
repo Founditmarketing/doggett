@@ -1,27 +1,33 @@
-import { motion } from "motion/react";
-
+import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { X } from "lucide-react";
 const practices = [
   {
     title: "Personal Injury",
     description: "If you are hurt in a car wreck or any other way through someone else’s carelessness, things can change in a split second. We believe you shouldn’t have to go through this alone.",
+    longDescription: "Our approach to Personal Injury litigation is aggressive, meticulous, and entirely unflinching. We do not accept quick settlements when millions are on the line. By mobilizing world-class experts in medicine, biomechanics, and accident reconstruction, we build impenetrable cases that routinely force high-value resolutions long before trial—and devastating verdicts when opponents refuse to yield. Your future is not a negotiation.",
     icon: "I",
     image: "/assets/practice_personal_injury_1773349744037.png"
   },
   {
     title: "Family Law",
     description: "When a couple separates or divorces, the law governs custody, support, and the division of marital property and debt. We are ready to assist you through these critical procedures.",
+    longDescription: "High net-worth divorces and complex custody disputes require discretion, tactical precision, and an ironclad understanding of asset division. We protect your privacy, your children, and your financial legacy with unwavering loyalty. We handle complex business valuations, hidden assets, and severe litigation with a composed hostility that ensures your empire remains intact.",
     icon: "II",
     image: "/assets/practice_family_law_1773349757645.png"
   },
   {
     title: "Succession Law",
     description: "Creating an estate plan can save your family the burden of making important decisions after you pass away. Having a plan ensures your wishes regarding assets are followed.",
+    longDescription: "The preservation of generational wealth demands an elite legal architect. We handle extremely sophisticated succession planning, trust formulation, and aggressive probate litigation. From minimizing tax liabilities on massive estates to excising challenges from unexpected claimants, we ensure that what you have built is transferred exactly as you command, without friction or delay.",
     icon: "III",
     image: "/assets/practice_succession_1773349772080.png"
   }
 ];
 
 export default function PracticeAreas() {
+  const [selectedPractice, setSelectedPractice] = useState<typeof practices[0] | null>(null);
+
   return (
     <section id="expertise" className="py-32 bg-obsidian relative border-y border-white/5 overflow-hidden">
 
@@ -92,6 +98,8 @@ export default function PracticeAreas() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setSelectedPractice(practice)}
               transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="group relative h-[500px] overflow-hidden bg-white/[0.03] border border-white/10 hover:border-champagne/40 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer shadow-2xl"
             >
@@ -131,6 +139,74 @@ export default function PracticeAreas() {
         </div>
 
       </div>
+
+      {/* Modal Overlay */}
+      <AnimatePresence>
+        {selectedPractice && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedPractice(null)}
+              className="absolute inset-0 bg-obsidian/90 backdrop-blur-xl transition-opacity"
+            />
+
+            <motion.div
+              layoutId={`practice-card-${selectedPractice.title}`}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-4xl bg-obsidian border border-white/10 shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+            >
+              {/* Image Half */}
+              <div className="md:w-1/2 relative h-64 md:h-auto overflow-hidden">
+                <div className="absolute inset-0 bg-obsidian/40 mix-blend-multiply z-10" />
+                <img
+                  src={selectedPractice.image}
+                  alt={selectedPractice.title}
+                  className="w-full h-full object-cover scale-105"
+                />
+              </div>
+
+              {/* Content Half */}
+              <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative overflow-y-auto">
+                <button
+                  onClick={() => setSelectedPractice(null)}
+                  className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10"
+                >
+                  <X size={20} />
+                </button>
+
+                <div className="text-champagne font-serif text-3xl mb-4">
+                  {selectedPractice.icon}
+                </div>
+                <h3 className="text-3xl md:text-4xl font-serif text-white mb-6 leading-tight">
+                  {selectedPractice.title}
+                </h3>
+                <div className="w-12 h-[1px] bg-champagne mb-8" />
+
+                <p className="text-alabaster/90 font-light leading-relaxed mb-8">
+                  {selectedPractice.longDescription}
+                </p>
+
+                <div className="mt-auto pt-8 border-t border-white/10">
+                  <a
+                    href="#contact"
+                    onClick={() => setSelectedPractice(null)}
+                    className="group inline-flex items-center gap-4 text-xs tracking-[0.2em] uppercase text-champagne hover:text-white transition-colors"
+                  >
+                    <span>Schedule Confidential Consultation</span>
+                    <div className="w-8 h-[1px] bg-champagne group-hover:w-12 group-hover:bg-white transition-all duration-300" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
     </section>
   );
 }

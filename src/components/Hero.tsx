@@ -72,22 +72,24 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-8 items-center"
         >
           <Magnetic intensity={0.3}>
-            <a
+            <motion.a
+              whileTap={{ scale: 0.95 }}
               href="tel:3188883644"
               className="group flex justify-center items-center px-8 lg:px-12 py-5 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] block"
             >
               <span className="relative z-10 font-medium transition-colors duration-500 group-hover:text-white">Request Consultation</span>
               <div className="absolute inset-0 bg-obsidian transform -translate-x-full transition-transform duration-500 group-hover:translate-x-0 ease-out z-0"></div>
-            </a>
+            </motion.a>
           </Magnetic>
           <Magnetic intensity={0.2}>
-            <a
+            <motion.a
+              whileTap={{ scale: 0.95 }}
               href="#expertise"
               className="group text-xs uppercase tracking-[0.2em] text-white flex items-center gap-4 transition-colors duration-300 hover:text-champagne block"
             >
               <span className="w-8 h-[1px] bg-white/30 group-hover:bg-champagne group-hover:w-16 transition-all duration-500"></span>
               Explore Our Practice
-            </a>
+            </motion.a>
           </Magnetic>
         </motion.div>
       </div>
