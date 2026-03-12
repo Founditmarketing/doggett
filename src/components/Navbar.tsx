@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -14,75 +14,112 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const menuVariants = {
+    closed: { opacity: 0, scale: 0.95, pointerEvents: "none" as const },
+    open: { opacity: 1, scale: 1, pointerEvents: "auto" as const }
+  };
+
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-obsidian/90 backdrop-blur-md py-4 shadow-lg shadow-black/20" : "bg-transparent py-6"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <div className="flex items-center gap-2 cursor-pointer">
-          <div className="w-8 h-8 border border-champagne flex items-center justify-center">
-            <span className="font-serif text-champagne text-xl leading-none">D</span>
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${isScrolled
+            ? "bg-obsidian/75 backdrop-blur-xl border-white/5 py-4 shadow-2xl shadow-obsidian/50"
+            : "bg-transparent border-transparent py-8"
+          }`}
+      >
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center gap-3 cursor-pointer group">
+            <div className={`w-10 h-10 border flex items-center justify-center transition-colors duration-500 ${isScrolled ? 'border-champagne/50 group-hover:border-champagne' : 'border-white/30 group-hover:border-white'}`}>
+              <span className={`font-serif text-2xl leading-none transition-colors duration-500 ${isScrolled ? 'text-champagne' : 'text-white'}`}>D</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif text-xl tracking-[0.2em] uppercase text-alabaster leading-none">
+                Doggett
+              </span>
+              <span className={`text-[0.65rem] tracking-[0.3em] uppercase leading-none mt-1 transition-colors duration-500 ${isScrolled ? 'text-champagne' : 'text-alabaster-muted'}`}>
+                Law Firm
+              </span>
+            </div>
           </div>
-          <span className="font-serif text-2xl tracking-widest uppercase text-alabaster">
-            Doggett <span className="text-champagne">Law</span>
-          </span>
-        </div>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          {["Expertise", "Results", "The Firm", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
-              className="text-sm uppercase tracking-widest text-alabaster/70 hover:text-champagne transition-colors duration-300"
-            >
-              {item}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="px-6 py-2 border border-champagne text-champagne text-sm uppercase tracking-widest hover:bg-champagne hover:text-obsidian transition-all duration-300"
-          >
-            Private Consultation
-          </a>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-alabaster"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-obsidian border-b border-white/10"
-        >
-          <div className="flex flex-col px-6 py-8 gap-6">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-10">
             {["Expertise", "Results", "The Firm", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(" ", "-")}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-lg font-serif uppercase tracking-widest text-alabaster/80 hover:text-champagne"
+                className={`text-xs uppercase tracking-[0.15em] transition-colors duration-300 relative group ${isScrolled ? 'text-alabaster-muted hover:text-white' : 'text-white/80 hover:text-white'}`}
               >
                 {item}
+                <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-champagne transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+            <a
+              href="#contact"
+              className={`px-7 py-3 text-xs uppercase tracking-[0.2em] transition-all duration-500 ${isScrolled
+                  ? "bg-champagne text-obsidian hover:bg-white"
+                  : "bg-white text-obsidian hover:bg-champagne hover:text-white"
+                }`}
+            >
+              Consultation
+            </a>
           </div>
-        </motion.div>
-      )}
-    </motion.nav>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-white z-50 relative p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+          </button>
+        </div>
+      </motion.nav>
+
+      {/* Fullscreen Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 bg-obsidian flex flex-col justify-center items-center"
+          >
+            <div className="absolute inset-0 bg-noise opacity-20"></div>
+            <div className="flex flex-col items-center gap-8 z-10">
+              {["Expertise", "Results", "The Firm", "Contact"].map((item, i) => (
+                <motion.a
+                  key={item}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 + 0.2, duration: 0.5 }}
+                  href={`#${item.toLowerCase().replace(" ", "-")}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-3xl font-serif text-white hover:text-champagne transition-colors"
+                >
+                  <span className="text-sm font-sans text-champagne mr-4 opacity-60">0{i + 1}</span>
+                  {item}
+                </motion.a>
+              ))}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-8 px-8 py-4 border border-champagne text-champagne text-sm uppercase tracking-widest hover:bg-champagne hover:text-obsidian transition-colors"
+              >
+                Request Private Consultation
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

@@ -2,71 +2,120 @@ import { motion } from "motion/react";
 
 export default function SignatureApproach() {
   return (
-    <section id="the-firm" className="py-32 bg-obsidian relative">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1 }}
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-[1px] bg-champagne"></div>
-              <span className="text-champagne text-xs uppercase tracking-[0.2em]">The Signature Approach</span>
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-serif font-light leading-tight mb-8">
-              Direct access to <br />
-              <span className="italic text-white/80">elite counsel.</span>
-            </h2>
-            
-            <div className="space-y-6 text-alabaster/70 font-light leading-relaxed">
-              <p>
-                At Doggett Law, we believe in "Fewer words, more work." We reject the volume-based model of traditional legal practice. We operate as a boutique firm by design, ensuring that every client receives personal attention and direct, unfiltered access to their lead attorney.
-              </p>
-              <p>
-                As a third-generation law practice, we bring extensive experience and professionalism to every case. Our attorneys have handled cases from pre-suit all the way to filing a writ with the Supreme Court. We keep a solid track record of maintaining contact with our clients, making sure you do not fall victim to opposing counsel or parties’ short-sighted moves.
-              </p>
-              <p>
-                Whether you’re injured, going through a divorce, or struggling with your estate planning, we customize our support to your individual needs and concerns. We are for our clients and look out for our clients’ best interests.
-              </p>
-            </div>
+    <section id="the-firm" className="py-32 md:py-48 bg-obsidian relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-[800px] bg-gradient-to-b from-champagne/5 to-transparent blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-[500px] bg-gradient-to-t from-white/5 to-transparent blur-[100px] pointer-events-none" />
 
-            <div className="mt-12">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Signature_of_John_Hancock.svg/1200px-Signature_of_John_Hancock.svg.png" 
-                alt="Signature" 
-                className="h-12 opacity-50 invert"
-                referrerPolicy="no-referrer"
-              />
-              <p className="mt-4 text-sm font-serif italic text-alabaster/50">Kenneth A. Doggett, Jr.</p>
-            </div>
-          </motion.div>
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
 
-          {/* Image */}
+          {/* Magazine-style Image Layout */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2 }}
-            className="relative"
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-6 relative h-[600px] md:h-[800px] w-full"
           >
-            <div className="aspect-[3/4] overflow-hidden relative">
-              <div className="absolute inset-0 bg-obsidian/20 z-10 mix-blend-multiply"></div>
+            <div className="absolute top-0 left-0 w-3/4 h-3/4 overflow-hidden shadow-2xl z-10">
+              <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
               <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000&auto=format&fit=crop"
-                alt="Attorney in office"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop"
+                alt="Legal Library"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] scale-105 hover:scale-100"
                 referrerPolicy="no-referrer"
               />
             </div>
-            {/* Decorative element */}
-            <div className="absolute -bottom-6 -left-6 w-32 h-32 border-l border-b border-champagne z-20"></div>
-            <div className="absolute -top-6 -right-6 w-32 h-32 border-r border-t border-champagne z-20"></div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute bottom-0 right-0 w-2/3 h-2/3 overflow-hidden shadow-2xl z-20 border-l-4 border-t-4 border-obsidian"
+            >
+              <div className="absolute inset-0 bg-obsidian/30 mix-blend-multiply z-10"></div>
+              <img
+                src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop"
+                alt="Legal Document"
+                className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-110 sepia-[.3]"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+
+            {/* Gold accents */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 border-t border-l border-champagne/50 z-0"></div>
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-champagne/50 z-0"></div>
           </motion.div>
+
+          {/* Text Content */}
+          <div className="lg:col-start-8 lg:col-span-5 flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="flex items-center gap-6 mb-12"
+            >
+              <div className="w-16 h-[1px] bg-gradient-to-r from-champagne to-transparent"></div>
+              <span className="text-champagne text-[10px] uppercase tracking-[0.3em] font-medium">The Signature Approach</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-[1.1] mb-12 text-white"
+            >
+              Direct Access to <br />
+              <span className="italic text-champagne">Elite Counsel.</span>
+            </motion.h2>
+
+            <div className="space-y-8 text-alabaster-muted font-light leading-relaxed text-sm md:text-base">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                At Doggett Law, we actively reject the volume-based model of traditional legal practice. Operating as a boutique firm by design ensures that every client receives obsessive attention to detail and direct, unfiltered access to their lead attorney.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              >
+                As a third-generation law practice, we bring extensive experience and ruthless professionalism to every case. Our attorneys have handled matters from pre-suit negotiation through filing writs with the Supreme Court. We insulate our clients from opposing counsel's short-sighted tactics.
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                Whether you're injured, navigating a divorce, or solidifying your legacy through estate planning, your strategy is custom-built. We serve strictly as your steadfast advocates.
+              </motion.p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, delay: 0.8 }}
+              className="mt-16 pt-8 border-t border-white/10"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Signature_of_John_Hancock.svg/1200px-Signature_of_John_Hancock.svg.png"
+                alt="Signature"
+                className="h-16 opacity-30 invert transition-opacity duration-500 hover:opacity-80"
+                referrerPolicy="no-referrer"
+              />
+              <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-alabaster/40">Kenneth A. Doggett, Jr.</p>
+            </motion.div>
+          </div>
 
         </div>
       </div>

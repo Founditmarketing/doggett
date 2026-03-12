@@ -3,71 +3,113 @@ import { motion } from "motion/react";
 const practices = [
   {
     title: "Personal Injury",
-    description: "If you are hurt in a car wreck, offshore accident, slip and fall, or through someone else’s negligence, things can change in a split second. You shouldn’t have to go through this alone, so we are here to fight for you.",
-    icon: "01"
+    description: "If you are hurt in an accident or through negligence, things change in a split second. You shouldn't have to navigate this alone. We meticulously build your case to ensure maximum recovery while you focus entirely on healing.",
+    icon: "I",
+    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=800&auto=format&fit=crop"
   },
   {
     title: "Family Law",
-    description: "When a couple separates or divorces, the law governs custody of children, child support, and the division of marital property and debt. There are procedures you must follow and proof you need. We are ready to assist you.",
-    icon: "02"
+    description: "Divorce, custody, and property division require both aggressive advocacy and strategic foresight. We provide discreet, powerful representation to protect your assets, your children, and your peace of mind during pivotal transitions.",
+    icon: "II",
+    image: "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?q=80&w=800&auto=format&fit=crop"
   },
   {
-    title: "Succession Law",
-    description: "Creating a basic estate plan can save your family the burden of making important decisions after you pass away. Having a plan in place ensures that your wishes regarding the distribution of your assets will be followed.",
-    icon: "03"
+    title: "Succession Litigation",
+    description: "Protecting a legacy requires uncompromising legal strategies. We handle complex estate disputes, successions, and wealth preservation matters, ensuring your family's assets and final wishes are fiercely defended in court.",
+    icon: "III",
+    image: "https://images.unsplash.com/photo-1520188740392-6ebbf4ea0fa6?q=80&w=800&auto=format&fit=crop"
   }
 ];
 
 export default function PracticeAreas() {
   return (
-    <section id="expertise" className="py-32 bg-obsidian-light relative border-y border-white/5">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
-        <div className="text-center mb-24">
+    <section id="expertise" className="py-32 bg-obsidian relative border-y border-white/5 overflow-hidden">
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
+
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+
+        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-6 mb-8"
+            >
+              <div className="w-12 h-[1px] bg-champagne"></div>
+              <span className="text-champagne text-[10px] uppercase tracking-[0.3em] font-medium">Areas of Authority</span>
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-1.1 text-white"
+            >
+              Our Singular <br />
+              <span className="italic text-champagne w-fit relative">
+                Focus.
+                <motion.span
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100%" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, delay: 1 }}
+                  className="absolute -bottom-2 left-0 h-[1px] bg-champagne hidden md:block"
+                />
+              </span>
+            </motion.h2>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center justify-center gap-4 mb-6"
+            transition={{ duration: 1, delay: 0.5 }}
+            className="hidden lg:block w-64 text-sm text-alabaster-muted font-light leading-relaxed"
           >
-            <div className="w-8 h-[1px] bg-champagne"></div>
-            <span className="text-champagne text-xs uppercase tracking-[0.2em]">Authority Centers</span>
-            <div className="w-8 h-[1px] bg-champagne"></div>
+            We don't dabble. We maintain strict focus on high-stakes litigation across three distinct areas of law.
           </motion.div>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-5xl font-serif font-light"
-          >
-            Areas of <span className="italic text-champagne">Mastery</span>
-          </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {practices.map((practice, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group relative p-8 lg:p-12 border border-white/10 hover:border-champagne/50 transition-colors duration-500 bg-obsidian"
+              transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative h-[500px] overflow-hidden bg-obsidian border border-white/5 hover:border-champagne/30 transition-all duration-500 cursor-pointer"
             >
-              <div className="text-champagne/30 font-serif text-6xl mb-8 group-hover:text-champagne transition-colors duration-500">
-                {practice.icon}
+              {/* Image Background */}
+              <div className="absolute inset-0 bg-obsidian z-0 transition-opacity duration-700 group-hover:opacity-100 opacity-0">
+                <img src={practice.image} alt={practice.title} className="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-110 group-hover:scale-100 transition-transform duration-[2s]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-obsidian/20"></div>
               </div>
-              <h3 className="text-2xl font-serif mb-6 text-alabaster">{practice.title}</h3>
-              <p className="text-alabaster/60 font-light leading-relaxed text-sm mb-8">
-                {practice.description}
-              </p>
-              <div className="flex items-center gap-2 text-champagne text-xs uppercase tracking-widest font-medium cursor-pointer group-hover:gap-4 transition-all duration-300">
-                <span>Learn More</span>
-                <span className="text-lg leading-none">&rarr;</span>
+
+              {/* Content */}
+              <div className="relative z-10 p-10 h-full flex flex-col justify-between">
+                <div>
+                  <div className="text-champagne/40 font-serif text-5xl mb-12 group-hover:text-champagne transition-colors duration-500 group-hover:-translate-y-2 transform">
+                    {practice.icon}
+                  </div>
+                  <h3 className="text-2xl font-serif mb-6 text-white group-hover:text-champagne transition-colors duration-300">{practice.title}</h3>
+                  <p className="text-alabaster-muted font-light leading-relaxed text-sm group-hover:text-alabaster transition-colors duration-300 line-clamp-4">
+                    {practice.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4 text-champagne text-[10px] uppercase tracking-[0.2em] font-medium opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                  <span>Explore Protocol</span>
+                  <div className="w-8 h-[1px] bg-champagne group-hover:w-12 transition-all duration-500"></div>
+                </div>
               </div>
+
+              {/* Bottom decorative bar */}
+              <div className="absolute bottom-0 left-0 h-[2px] bg-champagne w-0 group-hover:w-full transition-all duration-1000 ease-out z-20"></div>
             </motion.div>
           ))}
         </div>

@@ -1,97 +1,107 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 
 export default function Hero() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Background Image / Video Simulation */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-obsidian/60 z-10" /> {/* Dark overlay */}
+    <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-obsidian">
+      {/* Background with Parallax */}
+      <motion.div
+        style={{ y: y1, scale, opacity }}
+        className="absolute inset-0 z-0 origin-bottom"
+      >
+        <div className="absolute inset-0 bg-obsidian/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent z-20" />
         <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop"
           alt="Luxury Law Office"
-          className="w-full h-full object-cover scale-105 animate-[slowZoom_20s_ease-in-out_infinite_alternate]"
+          className="w-full h-full object-cover opacity-80"
           referrerPolicy="no-referrer"
         />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col items-center text-center mt-20">
+      {/* Content */}
+      <div className="relative z-30 max-w-screen-xl mx-auto px-6 md:px-12 w-full flex flex-col items-center text-center mt-20">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="mb-6 flex flex-col items-center gap-2"
+          transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 flex flex-col items-center gap-4"
         >
-          <span className="text-champagne text-xs md:text-sm uppercase tracking-[0.3em] font-medium">
+          <div className="w-[1px] h-16 bg-gradient-to-b from-transparent to-champagne/50"></div>
+          <span className="text-champagne text-[10px] md:text-xs uppercase tracking-[0.4em] font-medium">
             Alexandria, Louisiana
-          </span>
-          <span className="text-alabaster/60 text-xs uppercase tracking-[0.2em]">
-            Fewer words, more work.
           </span>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif font-light leading-[1.1] mb-8 max-w-5xl"
-        >
-          A Third-Generation <br />
-          <span className="italic text-champagne">Legacy of Resolve.</span>
-        </motion.h1>
+        <div className="overflow-hidden mb-6 py-2">
+          <motion.h1
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl md:text-7xl lg:text-[7rem] font-serif font-light leading-[1] max-w-6xl tracking-tight text-white"
+          >
+            A Legacy of <span className="italic text-champagne">Resolve.</span>
+          </motion.h1>
+        </div>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="text-lg md:text-xl text-alabaster/70 max-w-2xl font-light mb-12 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-base md:text-lg text-alabaster-muted max-w-2xl font-light mb-16 leading-loose"
         >
-          Providing quality legal representation in Personal Injury, Family Law, and Succession. When the stakes are highest, we are your steadfast guide.
+          Uncompromising legal representation tailored for the most demanding cases. When the stakes are ultimate, our precision is absolute.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="flex flex-col sm:flex-row gap-6"
+          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row gap-8 items-center"
         >
           <a
             href="tel:3188883644"
-            className="px-8 py-4 bg-champagne text-obsidian font-medium uppercase tracking-widest text-sm hover:bg-white transition-colors duration-300"
+            className="group flex justify-center items-center px-8 lg:px-12 py-5 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)]"
           >
-            Call 318-888-3644
+            <span className="relative z-10 font-medium transition-colors duration-500 group-hover:text-white">Request Consultation</span>
+            <div className="absolute inset-0 bg-obsidian transform -translate-x-full transition-transform duration-500 group-hover:translate-x-0 ease-out z-0"></div>
           </a>
           <a
             href="#expertise"
-            className="px-8 py-4 border border-white/20 text-alabaster font-medium uppercase tracking-widest text-sm hover:border-champagne hover:text-champagne transition-colors duration-300"
+            className="group text-xs uppercase tracking-[0.2em] text-white flex items-center gap-4 transition-colors duration-300 hover:text-champagne"
           >
+            <span className="w-8 h-[1px] bg-white/30 group-hover:bg-champagne group-hover:w-16 transition-all duration-500"></span>
             Explore Our Practice
           </a>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Modern Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        transition={{ duration: 1.5, delay: 1.5 }}
+        className="absolute bottom-12 right-12 hidden lg:flex flex-col items-center gap-6 z-30"
       >
-        <span className="text-[10px] uppercase tracking-[0.2em] text-alabaster/50">Scroll</span>
-        <div className="w-[1px] h-12 bg-white/20 overflow-hidden">
+        <span className="text-[9px] uppercase tracking-[0.3em] text-white/40 rotate-90 origin-right translate-x-1/2">Scroll</span>
+        <div className="w-[1px] h-24 bg-white/10 relative overflow-hidden">
           <motion.div
-            animate={{ y: [0, 48] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="w-full h-1/2 bg-champagne"
+            animate={{ y: ["-100%", "200%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 left-0 w-full h-1/3 bg-champagne"
           />
         </div>
       </motion.div>
-
-      <style>{`
-        @keyframes slowZoom {
-          0% { transform: scale(1); }
-          100% { transform: scale(1.1); }
-        }
-      `}</style>
     </section>
   );
 }
