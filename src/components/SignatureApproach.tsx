@@ -22,9 +22,9 @@ export default function SignatureApproach() {
             <div className="absolute top-0 left-0 w-3/4 h-3/4 overflow-hidden shadow-2xl z-10">
               <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
               <img
-                src="/assets/elite_attorney_portrait_1773349709984.png"
-                alt="Elite Attorney"
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[2s] scale-105 hover:scale-100"
+                src="/assets/approachable_attorney_portrait_1773371982596.png"
+                alt="Kenneth A. Doggett Jr. or Senior Attorney"
+                className="w-full h-full object-cover saturate-75 hover:saturate-100 transition-all duration-[2s] scale-105 hover:scale-100"
                 referrerPolicy="no-referrer"
                 loading="lazy"
               />
