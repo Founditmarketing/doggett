@@ -19,7 +19,7 @@ export default function SignatureApproach() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative h-[600px] md:h-[800px] w-full"
           >
-            <div className="absolute top-0 left-0 w-3/4 h-3/4 overflow-hidden shadow-2xl z-10">
+            <div className="absolute top-0 left-0 w-[85%] h-[85%] md:w-4/5 md:h-4/5 overflow-hidden shadow-2xl z-10">
               <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
               <img
                 src="/assets/approachable_attorney_portrait_1773371982596.png"
@@ -35,7 +35,7 @@ export default function SignatureApproach() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute bottom-0 right-0 w-2/3 h-2/3 overflow-hidden shadow-2xl z-20 border-l-4 border-t-4 border-obsidian"
+              className="absolute bottom-0 right-0 w-[45%] h-[35%] md:w-2/5 md:h-[35%] overflow-hidden shadow-2xl z-20 border-l-4 border-t-4 border-obsidian"
             >
               <div className="absolute inset-0 bg-obsidian/30 mix-blend-multiply z-10"></div>
               <img
