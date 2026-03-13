@@ -102,7 +102,7 @@ export default function Hero() {
           <SplitText
             text="Serious Advocacy."
             delay={0.3}
-            className="text-6xl md:text-[5.5rem] lg:text-[7.5rem] font-serif font-light leading-[1] max-w-6xl tracking-tight text-white justify-center"
+            className="text-[4rem] sm:text-6xl md:text-[5.5rem] lg:text-[7.5rem] font-serif font-light leading-[1] max-w-6xl tracking-tight text-white justify-center drop-shadow-[0_4px_16px_rgba(212,175,55,0.4)] md:drop-shadow-none"
           />
         </div>
 
@@ -110,7 +110,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-base md:text-lg text-alabaster-muted max-w-2xl font-light mb-16 leading-loose"
+          className="text-base md:text-lg text-alabaster-muted max-w-2xl font-light mb-16 leading-relaxed md:leading-loose px-4"
         >
           Advocating fiercely for our clients in all Personal Injury, Family, and Succession matters, from beginning to end.
         </motion.p>
