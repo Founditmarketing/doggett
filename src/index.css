@@ -7,13 +7,14 @@
   --color-obsidian: #050505;
   --color-obsidian-light: #121212;
   --color-obsidian-muted: #1f1f1f;
-  
+
   --color-champagne: #D4AF37;
   --color-champagne-light: #F3E5AB;
   --color-champagne-dark: #A68621;
-  
+
   --color-alabaster: #F7F7F7;
-  --color-alabaster-muted: #A3A3A3;
+  --color-alabaster-muted: #C8C8C8;
+  /* Brightened from A3A3A3 for accessibility contrast */
 }
 
 body {
@@ -24,7 +25,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
 }
 
@@ -37,13 +43,16 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-obsidian);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-obsidian-muted);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-champagne-dark);
 }
@@ -52,15 +61,23 @@ h1, h2, h3, h4, h5, h6 {
   .text-glow {
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
   }
+
   .bg-noise {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     opacity: 0.03;
     pointer-events: none;
   }
+
   .glass-panel {
     background: rgba(18, 18, 18, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Accessibility Overrides */
+  .font-light {
+    font-weight: 400 !important;
+    /* Force 'light' text to render as 'normal' to improve readability for older/visually impaired clients */
   }
 }

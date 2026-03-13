@@ -111,14 +111,14 @@ export default function PracticeAreas() {
                     {practice.icon}
                   </div>
                   <h3 className="text-2xl font-serif mb-6 text-white group-hover:text-champagne transition-colors duration-300">{practice.title}</h3>
-                  <p className="text-alabaster/90 font-light leading-relaxed text-sm group-hover:text-white transition-colors duration-300 line-clamp-4">
+                  <p className="text-white/90 font-normal leading-relaxed text-[15px] group-hover:text-white transition-colors duration-300">
                     {practice.description}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4 text-champagne text-[10px] uppercase tracking-[0.2em] font-medium opacity-100 translate-x-0 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-500">
-                  <span>Explore Protocol</span>
-                  <div className="w-12 h-[1px] bg-champagne md:w-8 md:group-hover:w-12 transition-all duration-500"></div>
+                <div className="flex items-center gap-4 text-champagne text-[11px] uppercase tracking-[0.2em] font-medium opacity-100 translate-x-0 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-500">
+                  <span>Explore Practice Area</span>
+                  <div className="w-12 h-[1px] bg-champagne md:w-8 md:group-hover:w-16 transition-all duration-500"></div>
                 </div>
               </div>
 

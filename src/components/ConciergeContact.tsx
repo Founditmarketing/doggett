@@ -106,12 +106,12 @@ export default function ConciergeContact() {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-champagne font-serif text-2xl italic">01.</span>
-                    <h3 className="text-xs uppercase tracking-[0.3em] text-alabaster">Identify Yourself</h3>
+                    <h3 className="text-xs uppercase tracking-[0.3em] text-alabaster">Contact Information</h3>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                     <div className="space-y-3">
-                      <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium">Full Legal Name</label>
+                      <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium">First and Last Name</label>
                       <input
                         type="text"
                         className={inputClasses}
@@ -131,7 +131,7 @@ export default function ConciergeContact() {
                       />
                     </div>
                     <div className="space-y-3 md:col-span-2">
-                      <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium">Electronic Mail</label>
+                      <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium">Email Address</label>
                       <input
                         type="email"
                         className={inputClasses}
@@ -219,11 +219,11 @@ export default function ConciergeContact() {
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-champagne font-serif text-2xl italic">03.</span>
-                    <h3 className="text-xs uppercase tracking-[0.3em] text-alabaster">Executive Summary</h3>
+                    <h3 className="text-xs uppercase tracking-[0.3em] text-alabaster">How Can We Help?</h3>
                   </div>
 
                   <div className="space-y-3">
-                    <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium">Brief Description of Circumstances</label>
+                    <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium">Brief Description of Your Situation</label>
                     <textarea
                       rows={5}
                       className={`${inputClasses} resize-none`}
@@ -245,13 +245,13 @@ export default function ConciergeContact() {
                     </button>
                     <button
                       onClick={() => {
-                        alert("Inquiry Dispatched. A member of our team will coordinate with you shortly.");
+                        alert("Message Sent. A member of our team will contact you shortly.");
                         navigate(1);
                         setFormData({ name: "", email: "", phone: "", inquiryType: "", details: "" });
                       }}
                       className="px-10 py-4 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
                     >
-                      Dispatch Inquiry
+                      Send Message
                     </button>
                   </div>
                 </motion.div>
