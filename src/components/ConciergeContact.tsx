@@ -43,7 +43,7 @@ export default function ConciergeContact() {
   return (
     <section id="contact" className="py-32 md:py-48 bg-obsidian relative overflow-hidden">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 bg-[url('/assets/southern_legal_oaks_contact.png')] bg-cover bg-center opacity-10 mix-blend-luminosity"></div>
+      <div className="absolute inset-0 bg-[url('/assets/red_river_alexandria_1773364769097.png')] bg-cover bg-center opacity-10 mix-blend-luminosity"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent"></div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">

@@ -53,8 +53,8 @@ export default function EliteResults() {
       <motion.div style={{ y: yOffset }} className="absolute inset-0 z-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-obsidian mix-blend-multiply border border-white/5"></div>
         <img
-          src="https://images.unsplash.com/photo-1542459955-f76ea59103c8?q=80&w=2000&auto=format&fit=crop"
-          alt="Gavel"
+          src="/assets/marble_columns_abstract_1773364755886.png"
+          alt="Dark Marble Courthouse Columns"
           className="w-full h-[150%] object-cover object-top grayscale"
           referrerPolicy="no-referrer"
         />

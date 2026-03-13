@@ -39,7 +39,7 @@ export default function SignatureApproach() {
             >
               <div className="absolute inset-0 bg-obsidian/30 mix-blend-multiply z-10"></div>
               <img
-                src="/assets/signature_approach_detail_1773349721313.png"
+                src="/assets/legal_briefs_macro_1773364741473.png"
                 alt="Legal Document"
                 className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-110"
                 referrerPolicy="no-referrer"
