@@ -6,6 +6,7 @@ import EliteResults from "./components/EliteResults";
 import CommunityPillar from "./components/CommunityPillar";
 import ConciergeContact from "./components/ConciergeContact";
 import Footer from "./components/Footer";
+import MobileFAB from "./components/MobileFAB";
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -76,6 +77,7 @@ export default function App() {
           <ConciergeContact />
         </main>
         <Footer />
+        <MobileFAB />
       </div>
     </div>
   );

@@ -74,6 +74,13 @@ export default function Footer() {
 
         </div>
 
+        {/* SEO Text Block */}
+        <div className="pt-8 mb-8 border-t border-white/5">
+          <p className="text-[10px] sm:text-xs text-alabaster-muted/40 font-light leading-relaxed max-w-5xl mx-auto text-center">
+            Doggett Law Firm provides elite legal representation across Central Louisiana (CENLA), including Rapides Parish, Grant Parish, Avoyelles Parish, and surrounding areas. Kenneth A. Doggett, Jr. specializes in high-stakes personal injury litigation (car accidents, commercial trucking collisions, wrongful death), complex high-net-worth family law and divorce, and contested succession litigation. Our Alexandria-based attorneys are dedicated to securing maximum leverage and decisive victories for our clients, from pre-suit negotiation to Supreme Court filings.
+          </p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] uppercase tracking-widest text-alabaster-muted/50 font-light">
           <p>&copy; {new Date().getFullYear()} Doggett Law Firm. All Rights Reserved.</p>
