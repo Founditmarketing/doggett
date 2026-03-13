@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import ScrubText from "./animations/ScrubText";
 
 export default function SignatureApproach() {
   return (
@@ -75,31 +76,18 @@ export default function SignatureApproach() {
               <span className="italic text-champagne relative z-10">Elite Counsel.</span>
             </motion.h2>
 
-            <div className="space-y-8 text-alabaster-muted font-light leading-relaxed text-sm md:text-base">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              >
-                Headquartered in Alexandria, Louisiana, Doggett Law represents personal injury, family, and succession clients. Our firm specializes in all matters, from beginning to end.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              >
-                Our attorneys have been practicing for decades and have experience in every stage of your case. That means you get an attorney who has handled cases from pre-suit all the way to filing a writ with the Supreme Court.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              >
-                Our attorneys make themselves available to speak with you directly about your case. We firmly reject the volume-based model, ensuring you receive the personal attention necessary to protect your best interests.
-              </motion.p>
+            <div className="text-alabaster-muted font-light leading-loose text-sm md:text-base lg:text-lg mb-8 max-w-2xl">
+              <ScrubText
+                text="Headquartered in Alexandria, Louisiana, Doggett Law represents personal injury, family, and succession clients. Our firm specializes in all matters, from beginning to end."
+              />
+              <div className="h-8"></div>
+              <ScrubText
+                text="Our attorneys have practice experience ranging from pre-suit negotiation all the way to filing writs with the Supreme Court. We recognize that the injuries you sustain impact not only you but your entire family."
+              />
+              <div className="h-8"></div>
+              <ScrubText
+                text="Whether you're injured, navigating a complex divorce, or structuring legacy estate planning, we custom-tailor our aggressive litigation strategies to ensure your best interests are protected. We make ourselves available to speak with you directly about your case."
+              />
             </div>
 
             <motion.div
@@ -109,13 +97,40 @@ export default function SignatureApproach() {
               transition={{ duration: 1.5, delay: 0.8 }}
               className="mt-16 pt-8 border-t border-white/10"
             >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Signature_of_John_Hancock.svg/1200px-Signature_of_John_Hancock.svg.png"
-                alt="Signature"
-                className="h-16 opacity-30 invert transition-opacity duration-500 hover:opacity-80"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-              />
+              <div className="grid grid-cols-2 gap-8 mb-12">
+                <div>
+                  <h4 className="text-champagne text-xs uppercase tracking-widest mb-3 font-medium">Bar Admissions</h4>
+                  <p className="text-sm text-alabaster-muted font-light leading-relaxed">Louisiana State Bar<br />Texas State Bar</p>
+                </div>
+                <div>
+                  <h4 className="text-champagne text-xs uppercase tracking-widest mb-3 font-medium">Education & Honors</h4>
+                  <p className="text-sm text-alabaster-muted font-light leading-relaxed">
+                    J.D. — Southern University Law Center<br />
+                    B.A. — Louisiana Tech University<br />
+                    2020 Top 10 Under 40 (NACDA)
+                  </p>
+                </div>
+              </div>
+              <div className="relative h-20 w-full max-w-[300px] mb-2 cursor-pointer group">
+                <svg viewBox="0 0 400 120" className="w-full h-full stroke-champagne/80 group-hover:stroke-champagne transition-colors duration-500 fill-none stroke-[2px]" strokeLinecap="round" strokeLinejoin="round">
+                  {/* "K. A." */}
+                  <motion.path
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1], delay: 1 }}
+                    d="M 30,20 C 20,40 15,90 25,100 C 35,110 40,80 50,70 C 60,60 90,40 70,30 C 50,20 40,50 60,100 C 70,110 80,90 85,80 M 100,90 L 100,92 M 120,80 C 130,50 140,50 150,90 C 155,100 145,100 135,100 C 120,100 125,70 145,70 C 155,70 160,90 170,100 M 180,95 L 180,97"
+                  />
+                  {/* "Doggett" */}
+                  <motion.path
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 2.5, ease: [0.33, 1, 0.68, 1], delay: 2.2 }}
+                    d="M 200,40 C 180,40 180,100 200,100 C 220,100 230,80 230,40 C 230,20 200,20 190,40 C 180,60 180,90 200,100 M 235,100 C 245,80 255,80 250,60 C 245,40 230,60 230,80 C 230,100 245,100 255,90 M 265,100 C 275,80 290,40 280,30 C 270,20 250,50 250,90 C 250,130 270,140 280,110 C 290,80 300,50 310,50 C 330,50 320,100 330,120 C 340,140 360,110 370,80 M 270,40 L 320,30 M 340,60 C 350,60 350,100 360,100 C 370,100 370,60 380,60 C 390,60 390,100 400,100"
+                  />
+                </svg>
+              </div>
               <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-alabaster/40 font-medium">Kenneth A. Doggett, Jr.</p>
             </motion.div>
           </div>

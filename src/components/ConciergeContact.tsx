@@ -67,7 +67,7 @@ export default function ConciergeContact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-6 text-white"
           >
-            Initiate a <span className="italic text-champagne">Confidential Inquiry.</span>
+            Third Generation<span className="block mt-2 font-serif">Law Practice.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

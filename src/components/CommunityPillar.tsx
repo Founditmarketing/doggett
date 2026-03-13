@@ -11,6 +11,12 @@ export default function CommunityPillar() {
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
 
+  // Cinematic Parallax Effects
+  const imageScale = useTransform(scrollYProgress, [0, 0.5], [1, 1.15]);
+  const imageY = useTransform(scrollYProgress, [0, 0.5], ["0%", "10%"]);
+  const panelTwoOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1]);
+  const panelTwoY = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
+
   return (
     <section ref={targetRef} className="relative h-[250vh] bg-obsidian border-y border-white/5">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
@@ -26,11 +32,12 @@ export default function CommunityPillar() {
                 <motion.div
                   className="absolute top-0 left-0 w-full h-full shadow-2xl"
                 >
-                  <div className="w-full h-full border border-champagne/20 relative overflow-hidden group">
-                    <img
-                      src="/assets/alexandria_la_courthouse_detail.png"
+                  <div className="w-full h-full border border-champagne/20 relative overflow-hidden">
+                    <motion.img
+                      style={{ scale: imageScale, y: imageY }}
+                      src="/assets/alexandria_la_courthouse_detail_1773350922086.png"
                       alt="Alexandria LA Courthouse Architecture"
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      className="w-full h-full object-cover origin-bottom"
                       referrerPolicy="no-referrer"
                       loading="lazy"
                     />
@@ -68,7 +75,7 @@ export default function CommunityPillar() {
             {/* Background flourish */}
             <div className="absolute top-1/2 left-0 w-[800px] h-[800px] -translate-y-1/2 -translate-x-1/2 bg-champagne/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <div className="max-w-4xl mx-auto w-full relative z-10">
+            <motion.div style={{ opacity: panelTwoOpacity, y: panelTwoY }} className="max-w-4xl mx-auto w-full relative z-10">
               <SplitText
                 text="Local Service."
                 delay={0}
@@ -96,7 +103,7 @@ export default function CommunityPillar() {
                 <span>Initiate Dialogue</span>
                 <span className="w-12 h-[1px] bg-champagne group-hover:bg-white group-hover:w-24 transition-all duration-500"></span>
               </a>
-            </div>
+            </motion.div>
           </div>
 
         </motion.div>

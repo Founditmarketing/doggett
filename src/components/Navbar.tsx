@@ -62,6 +62,11 @@ export default function Navbar() {
                 </Magnetic>
               </React.Fragment>
             ))}
+
+            <a href="tel:3188883644" className={`text-xs uppercase tracking-[0.15em] transition-colors duration-300 ${isScrolled ? 'text-champagne hover:text-white' : 'text-champagne hover:text-white'}`}>
+              (318) 888-3644
+            </a>
+
             <Magnetic intensity={0.2}>
               <a
                 href="#contact"
@@ -112,6 +117,15 @@ export default function Navbar() {
                   {item}
                 </motion.a>
               ))}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                href="tel:3188883644"
+                className="text-xl font-serif text-champagne hover:text-white transition-colors mt-4"
+              >
+                (318) 888-3644
+              </motion.a>
               <motion.a
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

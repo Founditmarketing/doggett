@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { X } from "lucide-react";
+import LiquidImage from "./animations/LiquidImage";
 const practices = [
   {
     title: "Personal Injury",
     description: "If you are hurt in a car wreck or any other way through someone else’s carelessness, things can change in a split second. We believe you shouldn’t have to go through this alone.",
-    longDescription: "Our approach to Personal Injury litigation is aggressive, meticulous, and entirely unflinching. We do not accept quick settlements when millions are on the line. By mobilizing world-class experts in medicine, biomechanics, and accident reconstruction, we build impenetrable cases that routinely force high-value resolutions long before trial—and devastating verdicts when opponents refuse to yield. Your future is not a negotiation.",
+    longDescription: "Our approach to Personal Injury litigation is aggressive, meticulous, and entirely unflinching. We handle catastrophic car and trucking accidents, offshore accidents, severe slip and falls, dog bites, and special victim representation. We immediately launch comprehensive investigations, securing crucial evidence and dismantling insurance company defense tactics.\n\nCRITICAL: Louisiana enforces one of the strictest statutes of limitations in the country. You possess exactly one year from the date of the incident to file a lawsuit in most cases. Do not wait.",
     icon: "I",
     image: "/assets/practice_personal_injury_1773349744037.png"
   },
@@ -19,7 +20,7 @@ const practices = [
   {
     title: "Succession Law",
     description: "Creating an estate plan can save your family the burden of making important decisions after you pass away. Having a plan ensures your wishes regarding assets are followed.",
-    longDescription: "The preservation of generational wealth demands an elite legal architect. We handle extremely sophisticated succession planning, trust formulation, and aggressive probate litigation. From minimizing tax liabilities on massive estates to excising challenges from unexpected claimants, we ensure that what you have built is transferred exactly as you command, without friction or delay.",
+    longDescription: "Creating a basic estate plan can save your family the burden of making important decisions should you become incapacitated or after you pass away. Having a plan in place now offers you the best chance of ensuring that your wishes regarding the distribution of your assets or medical care will be followed. We handle sophisticated succession planning, trust formulation, and probate litigation to ensure your legacy remains intact.",
     icon: "III",
     image: "/assets/practice_succession_1773349772080.png"
   }
@@ -30,16 +31,6 @@ export default function PracticeAreas() {
 
   return (
     <section id="expertise" className="py-32 bg-obsidian relative border-y border-white/5 overflow-hidden">
-
-      {/* Liquid SVG Filter Definition */}
-      <svg style={{ width: 0, height: 0, position: 'absolute' }}>
-        <filter id="liquid" colorInterpolationFilters="sRGB">
-          <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise">
-            <animate attributeName="baseFrequency" values="0.015;0.02;0.015" duration="8s" repeatCount="indefinite" />
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-      </svg>
 
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_10%,transparent_100%)]"></div>
@@ -105,12 +96,10 @@ export default function PracticeAreas() {
             >
               {/* Image Background */}
               <div className="absolute inset-0 bg-obsidian z-0 transition-opacity duration-700 group-hover:opacity-100 opacity-0 overflow-hidden">
-                <img
+                <LiquidImage
                   src={practice.image}
                   alt={practice.title}
-                  style={{ filter: "url(#liquid)" }}
-                  className="w-full h-full object-cover opacity-40 mix-blend-luminosity scale-125 group-hover:scale-110 transition-transform duration-[2s]"
-                  loading="lazy"
+                  className="absolute inset-0 w-full h-full opacity-40 mix-blend-luminosity scale-125 group-hover:scale-110 transition-transform duration-[2s]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/80 to-obsidian/20"></div>
               </div>

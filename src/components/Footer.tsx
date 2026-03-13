@@ -24,7 +24,7 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-alabaster-muted leading-relaxed font-light mb-8 max-w-sm">
+            <p className="text-alabaster-muted leading-relaxed font-light mb-8 max-w-sm text-sm">
               Doggett Law is a local third generation law practice that provides quality legal representation throughout all of CENLA.
             </p>
             <a

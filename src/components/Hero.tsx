@@ -94,9 +94,9 @@ export default function Hero() {
 
         <div className="overflow-hidden mb-6 py-2 flex flex-col items-center">
           <SplitText
-            text="Fewer words, more work."
+            text="Serious Advocacy."
             delay={0.3}
-            className="text-5xl md:text-7xl lg:text-[7rem] font-serif font-light leading-[1] max-w-6xl tracking-tight text-white justify-center"
+            className="text-6xl md:text-[5.5rem] lg:text-[7.5rem] font-serif font-light leading-[1] max-w-6xl tracking-tight text-white justify-center"
           />
         </div>
 
