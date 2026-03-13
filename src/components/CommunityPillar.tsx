@@ -35,8 +35,8 @@ export default function CommunityPillar() {
                   <div className="w-full h-full border border-champagne/20 relative overflow-hidden">
                     <motion.img
                       style={{ scale: imageScale, y: imageY }}
-                      src="/assets/alexandria_la_courthouse_detail_1773350922086.png"
-                      alt="Alexandria LA Courthouse Architecture"
+                      src="/assets/rapides_parish_courthouse_exterior_1773365255809.png"
+                      alt="Rapides Parish Courthouse Exterior"
                       className="w-full h-full object-cover origin-bottom"
                       referrerPolicy="no-referrer"
                       loading="lazy"

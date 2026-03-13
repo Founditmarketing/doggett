@@ -15,7 +15,7 @@ export default function SignatureApproach() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative h-[600px] md:h-[800px] w-full"
           >
@@ -33,7 +33,7 @@ export default function SignatureApproach() {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="absolute bottom-0 right-0 w-2/3 h-2/3 overflow-hidden shadow-2xl z-20 border-l-4 border-t-4 border-obsidian"
             >
@@ -57,7 +57,7 @@ export default function SignatureApproach() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-6 mb-12"
             >
@@ -68,7 +68,7 @@ export default function SignatureApproach() {
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-6xl font-serif font-light leading-[1.1] mb-12 text-white"
             >
@@ -117,7 +117,7 @@ export default function SignatureApproach() {
                   <motion.path
                     initial={{ pathLength: 0 }}
                     whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
+                    viewport={{ once: true, margin: "0px" }}
                     transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1], delay: 1 }}
                     d="M 30,20 C 20,40 15,90 25,100 C 35,110 40,80 50,70 C 60,60 90,40 70,30 C 50,20 40,50 60,100 C 70,110 80,90 85,80 M 100,90 L 100,92 M 120,80 C 130,50 140,50 150,90 C 155,100 145,100 135,100 C 120,100 125,70 145,70 C 155,70 160,90 170,100 M 180,95 L 180,97"
                   />
@@ -125,7 +125,7 @@ export default function SignatureApproach() {
                   <motion.path
                     initial={{ pathLength: 0 }}
                     whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
+                    viewport={{ once: true, margin: "0px" }}
                     transition={{ duration: 2.5, ease: [0.33, 1, 0.68, 1], delay: 2.2 }}
                     d="M 200,40 C 180,40 180,100 200,100 C 220,100 230,80 230,40 C 230,20 200,20 190,40 C 180,60 180,90 200,100 M 235,100 C 245,80 255,80 250,60 C 245,40 230,60 230,80 C 230,100 245,100 255,90 M 265,100 C 275,80 290,40 280,30 C 270,20 250,50 250,90 C 250,130 270,140 280,110 C 290,80 300,50 310,50 C 330,50 320,100 330,120 C 340,140 360,110 370,80 M 270,40 L 320,30 M 340,60 C 350,60 350,100 360,100 C 370,100 370,60 380,60 C 390,60 390,100 400,100"
                   />

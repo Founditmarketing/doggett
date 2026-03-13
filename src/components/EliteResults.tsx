@@ -93,7 +93,7 @@ export default function EliteResults() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {victories.map((victory, index) => {
             const cardRef = useRef(null);
-            const isInView = useInView(cardRef, { once: true, margin: "-100px" });
+            const isInView = useInView(cardRef, { once: true, margin: "0px" });
             const [isHovered, setIsHovered] = useState(false);
 
             return (
