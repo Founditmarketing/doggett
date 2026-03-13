@@ -22,7 +22,7 @@ function Counter({ from, to, prefix, suffix, formatted }: { from: number, to: nu
 
     const controls = animate(from, to, {
       duration: 2.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as any,
       onUpdate(value) {
         if (value > 1000000) {
           node.textContent = `${prefix}${(value / 1000000).toFixed(1)}M`;

@@ -25,7 +25,7 @@ export default function SplitText({ text, className = "", delay = 0 }: SplitText
                 type: "spring",
                 damping: 12,
                 stiffness: 100,
-            },
+            } as any,
         },
         hidden: {
             opacity: 0,
@@ -34,7 +34,7 @@ export default function SplitText({ text, className = "", delay = 0 }: SplitText
                 type: "spring",
                 damping: 12,
                 stiffness: 100,
-            },
+            } as any,
         },
     };
 
