@@ -1,5 +1,4 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
 import { ArrowLeft, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import SplitText from "../components/animations/SplitText";
@@ -49,10 +48,6 @@ const practiceData: Record<string, any> = {
 export default function PracticeArea() {
     const { id } = useParams();
     const data = id ? practiceData[id] : null;
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [id]);
 
     if (!data) return <div className="min-h-screen flex items-center justify-center text-white">Area not found.</div>;
 

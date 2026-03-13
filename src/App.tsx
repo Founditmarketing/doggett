@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import MobileFAB from "./components/MobileFAB";
 import Home from "./pages/Home";
 import PracticeArea from "./pages/PracticeArea";
+import ScrollToTop from "./components/ScrollToTop";
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -65,6 +66,7 @@ export default function App() {
       </AnimatePresence>
       <div className="min-h-screen bg-obsidian text-alabaster selection:bg-champagne selection:text-obsidian flex flex-col">
         <Router>
+          <ScrollToTop />
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
