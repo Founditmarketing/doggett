@@ -79,6 +79,20 @@ function ShaderPlane({ image }: { image: string }) {
 }
 
 export default function LiquidImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+    // Detect mobile/touch devices where hover shaders are unnecessary and too heavy
+    const isMobile = typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+    if (isMobile) {
+        return (
+            <img
+                src={src}
+                alt={alt}
+                className={className + " object-cover"}
+                loading="lazy"
+            />
+        );
+    }
+
     return (
         <div className={className}>
             <Canvas orthographic camera={{ position: [0, 0, 1] }} dpr={[1, 1.5]}>

@@ -18,8 +18,9 @@ function Starfield(props: any) {
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 15;
-      ref.current.rotation.y -= delta / 20;
+      // Significantly reduce rotation speed to save CPU cycles on low-end processors
+      ref.current.rotation.x -= delta / 30;
+      ref.current.rotation.y -= delta / 40;
     }
   });
 
@@ -50,6 +51,9 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
 
+  // Disable aggressive WebGL rendering on mobile devices immediately
+  const isMobile = typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-obsidian">
       {/* Background with Parallax and WebGL */}
@@ -58,11 +62,13 @@ export default function Hero() {
         className="absolute inset-0 z-0 origin-bottom"
       >
         {/* WebGL Particle Canvas (Behind the image base, or overlaid slightly if desired) */}
-        <div className="absolute inset-0 z-20 mix-blend-screen opacity-50 pointer-events-none">
-          <Canvas camera={{ position: [0, 0, 1] }}>
-            <Starfield />
-          </Canvas>
-        </div>
+        {!isMobile && (
+          <div className="absolute inset-0 z-20 mix-blend-screen opacity-50 pointer-events-none">
+            <Canvas camera={{ position: [0, 0, 1] }} dpr={[1, 1.5]} performance={{ min: 0.5 }}>
+              <Starfield />
+            </Canvas>
+          </div>
+        )}
 
         {/* Video/Image Background */}
         <div className="absolute inset-0 overflow-hidden">
