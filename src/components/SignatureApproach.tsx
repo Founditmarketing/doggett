@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import ScrubText from "./animations/ScrubText";
+import { Award } from "lucide-react";
 
 export default function SignatureApproach() {
   return (
@@ -104,11 +105,14 @@ export default function SignatureApproach() {
                 </div>
                 <div>
                   <h4 className="text-champagne text-xs uppercase tracking-widest mb-3 font-medium">Education & Honors</h4>
-                  <p className="text-sm text-alabaster-muted font-light leading-relaxed">
+                  <p className="text-sm text-alabaster-muted font-light leading-relaxed mb-4">
                     J.D. — Southern University Law Center<br />
-                    B.A. — Louisiana Tech University<br />
-                    2020 Top 10 Under 40 (NACDA)
+                    B.A. — Louisiana Tech University
                   </p>
+                  <div className="inline-flex items-center gap-3 border border-champagne/30 bg-champagne/5 px-4 py-2 mt-2">
+                    <Award className="w-5 h-5 text-champagne" />
+                    <span className="text-[10px] uppercase tracking-widest text-champagne font-medium">2020 Top 10 Under 40 (NACDA)</span>
+                  </div>
                 </div>
               </div>
               <div className="relative h-24 md:h-20 w-full min-h-[96px] max-w-[300px] mb-2 cursor-pointer group flex items-center">

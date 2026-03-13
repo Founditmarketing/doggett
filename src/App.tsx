@@ -1,12 +1,9 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import SignatureApproach from "./components/SignatureApproach";
-import PracticeAreas from "./components/PracticeAreas";
-import EliteResults from "./components/EliteResults";
-import CommunityPillar from "./components/CommunityPillar";
-import ConciergeContact from "./components/ConciergeContact";
 import Footer from "./components/Footer";
 import MobileFAB from "./components/MobileFAB";
+import Home from "./pages/Home";
+import PracticeArea from "./pages/PracticeArea";
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
@@ -67,17 +64,15 @@ export default function App() {
         )}
       </AnimatePresence>
       <div className="min-h-screen bg-obsidian text-alabaster selection:bg-champagne selection:text-obsidian flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          <Hero />
-          <SignatureApproach />
-          <PracticeAreas />
-          <EliteResults />
-          <CommunityPillar />
-          <ConciergeContact />
-        </main>
-        <Footer />
-        <MobileFAB />
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/practice/:id" element={<PracticeArea />} />
+          </Routes>
+          <Footer />
+          <MobileFAB />
+        </Router>
       </div>
     </div>
   );

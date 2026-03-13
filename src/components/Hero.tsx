@@ -112,7 +112,7 @@ export default function Hero() {
           transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-base md:text-lg text-alabaster-muted max-w-2xl font-light mb-16 leading-relaxed md:leading-loose px-4"
         >
-          Advocating fiercely for our clients in all Personal Injury, Family, and Succession matters, from beginning to end.
+          Advocating fiercely for our clients in all Personal Injury, Family, and Succession matters, securing the outcomes you deserve.
         </motion.p>
 
         <motion.div
@@ -127,7 +127,7 @@ export default function Hero() {
               href="tel:3188883644"
               className="group flex justify-center items-center px-8 lg:px-12 py-5 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] relative overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] block"
             >
-              <span className="relative z-10 font-medium transition-colors duration-500 group-hover:text-white">Request Consultation</span>
+              <span className="relative z-10 font-medium transition-colors duration-500 group-hover:text-white">Start Free Consultation</span>
               <div className="absolute inset-0 bg-obsidian transform -translate-x-full transition-transform duration-500 group-hover:translate-x-0 ease-out z-0"></div>
             </motion.a>
           </Magnetic>
@@ -148,17 +148,15 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 1.5 }}
-        className="absolute bottom-12 right-12 hidden lg:flex flex-col items-center gap-6 z-30"
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-12 right-12 hidden md:flex items-center gap-4 rotate-90 origin-right"
       >
-        <span className="text-[9px] uppercase tracking-[0.3em] text-white/40 rotate-90 origin-right translate-x-1/2">Scroll</span>
-        <div className="w-[1px] h-24 bg-white/10 relative overflow-hidden">
-          <motion.div
-            animate={{ y: ["-100%", "200%"] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="absolute top-0 left-0 w-full h-1/3 bg-champagne"
-          />
-        </div>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/50 font-medium translate-x-12">Scroll</span>
+        <motion.div
+          animate={{ x: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="w-16 h-[1px] bg-champagne"
+        />
       </motion.div>
     </section>
   );

@@ -7,6 +7,7 @@ export default function ConciergeContact() {
     name: "",
     email: "",
     phone: "",
+    preferredContact: "phone",
     inquiryType: "",
     details: ""
   });
@@ -140,6 +141,25 @@ export default function ConciergeContact() {
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       />
                     </div>
+                    <div className="space-y-3">
+                      <label className="text-[10px] uppercase tracking-widest text-champagne/80 font-medium block">Preferred Contact Method</label>
+                      <div className="flex bg-white/5 border border-white/10 p-1">
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, preferredContact: "phone" })}
+                          className={`flex-1 py-3 text-xs uppercase tracking-widest transition-colors ${formData.preferredContact === 'phone' ? 'bg-champagne text-obsidian font-medium' : 'text-alabaster-muted hover:text-white'}`}
+                        >
+                          Phone Call
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, preferredContact: "email" })}
+                          className={`flex-1 py-3 text-xs uppercase tracking-widest transition-colors ${formData.preferredContact === 'email' ? 'bg-champagne text-obsidian font-medium' : 'text-alabaster-muted hover:text-white'}`}
+                        >
+                          Email
+                        </button>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="flex justify-end pt-8">
@@ -247,7 +267,14 @@ export default function ConciergeContact() {
                       onClick={() => {
                         alert("Message Sent. A member of our team will contact you shortly.");
                         navigate(1);
-                        setFormData({ name: "", email: "", phone: "", inquiryType: "", details: "" });
+                        setFormData({
+                          name: "",
+                          email: "",
+                          phone: "",
+                          preferredContact: "phone",
+                          inquiryType: "",
+                          details: ""
+                        });
                       }}
                       className="px-10 py-4 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
                     >

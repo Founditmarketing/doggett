@@ -3,9 +3,9 @@ import { useRef, useEffect, useState } from "react";
 
 const victories = [
   { amount: 4200000, prefix: "$", suffix: "M", formatted: "4.2M", type: "Personal Injury", detail: "Commercial Trucking Collision", description: "Secured after demonstrating catastrophic mechanical failure ignored by corporate safety protocols." },
-  { amount: 0, prefix: "", suffix: "Secured", formatted: "Secured", type: "Family Law", detail: "High-Net-Worth Asset Division", description: "Successfully shielded multi-generational family business assets from aggressive antagonistic claims." },
+  { amount: 0, prefix: "Full Custody", suffix: " Awarded", formatted: "Awarded", type: "Family Law", detail: "High-Net-Worth Asset Division", description: "Successfully shielded multi-generational family business assets from aggressive antagonistic claims." },
   { amount: 1800000, prefix: "$", suffix: "M", formatted: "1.8M", type: "Personal Injury", detail: "Workplace Negligence", description: "Obtained maximum policy limits prior to trial initiation due to overwhelming biomechanical evidence." },
-  { amount: 0, prefix: "", suffix: "Resolved", formatted: "Resolved", type: "Succession", detail: "Complex Multi-Generational Estate", description: "Dismantled fraudulent heir objections and preserved the integrity of the original aristocratic estate plan." },
+  { amount: 2100000, prefix: "$", suffix: "M Preserved", formatted: "2.1M", type: "Succession", detail: "Complex Multi-Generational Estate", description: "Dismantled fraudulent heir objections and preserved the integrity of the original aristocratic estate plan." },
 ];
 
 function Counter({ from, to, prefix, suffix, formatted }: { from: number, to: number, prefix: string, suffix: string, formatted: string }) {
@@ -25,9 +25,9 @@ function Counter({ from, to, prefix, suffix, formatted }: { from: number, to: nu
       ease: [0.16, 1, 0.3, 1] as any,
       onUpdate(value) {
         if (value > 1000000) {
-          node.textContent = `${prefix}${(value / 1000000).toFixed(1)}M`;
+          node.textContent = `${prefix}${(value / 1000000).toFixed(1)}${suffix}`;
         } else {
-          node.textContent = `${prefix}${Math.round(value).toLocaleString()}`;
+          node.textContent = `${prefix}${Math.round(value).toLocaleString()}${suffix}`;
         }
       },
     });
@@ -79,15 +79,6 @@ export default function EliteResults() {
             </h2>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-md text-alabaster-muted font-light text-sm leading-relaxed"
-          >
-            <p>Past performance is not a guarantee of future results, but it remains the absolute strongest indicator of capability. We prepare every single case as if trial is inevitable, securing maximum leverage.</p>
-          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -152,6 +143,18 @@ export default function EliteResults() {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-[10px] uppercase tracking-widest text-alabaster/30 font-light">
+            * Past performance is not a guarantee of future results. We prepare every single case as if trial is inevitable, securing maximum leverage regardless of past verdicts.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
