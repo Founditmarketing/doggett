@@ -48,8 +48,8 @@ export default function SignatureApproach() {
             </motion.div>
 
             {/* Gold accents */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 border-t border-l border-champagne/50 z-0"></div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b border-r border-champagne/50 z-0"></div>
+            <div className="absolute -top-2 -left-2 md:-top-4 md:-left-4 w-16 h-16 md:w-24 md:h-24 border-t-2 border-l-2 md:border-t md:border-l border-champagne md:border-champagne/50 z-0"></div>
+            <div className="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 w-16 h-16 md:w-24 md:h-24 border-b-2 border-r-2 md:border-b md:border-r border-champagne md:border-champagne/50 z-0"></div>
           </motion.div>
 
           {/* Text Content */}
@@ -112,7 +112,7 @@ export default function SignatureApproach() {
                 </div>
               </div>
               <div className="relative h-20 w-full max-w-[300px] mb-2 cursor-pointer group">
-                <svg viewBox="0 0 400 120" className="w-full h-full stroke-champagne/80 group-hover:stroke-champagne transition-colors duration-500 fill-none stroke-[2px]" strokeLinecap="round" strokeLinejoin="round">
+                <svg viewBox="0 0 400 120" className="w-full h-full stroke-champagne md:stroke-champagne/80 group-hover:stroke-champagne transition-colors duration-500 fill-none stroke-[4px] md:stroke-[2px]" strokeLinecap="round" strokeLinejoin="round">
                   {/* "K. A." */}
                   <motion.path
                     initial={{ pathLength: 0 }}

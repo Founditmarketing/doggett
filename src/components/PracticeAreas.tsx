@@ -92,7 +92,7 @@ export default function PracticeAreas() {
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedPractice(practice)}
               transition={{ duration: 0.8, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative h-[500px] overflow-hidden bg-white/[0.03] border border-white/10 hover:border-champagne/40 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer shadow-2xl"
+              className="group relative h-[500px] overflow-hidden bg-white/[0.03] border border-champagne/30 md:border-white/10 md:hover:border-champagne/40 hover:bg-white/[0.05] transition-all duration-500 cursor-pointer shadow-2xl"
             >
               {/* Image Background */}
               <div className="absolute inset-0 bg-obsidian z-0 transition-opacity duration-700 group-hover:opacity-100 opacity-0 overflow-hidden">
@@ -116,9 +116,9 @@ export default function PracticeAreas() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4 text-champagne text-[10px] uppercase tracking-[0.2em] font-medium opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                <div className="flex items-center gap-4 text-champagne text-[10px] uppercase tracking-[0.2em] font-medium opacity-100 translate-x-0 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-500">
                   <span>Explore Protocol</span>
-                  <div className="w-8 h-[1px] bg-champagne group-hover:w-12 transition-all duration-500"></div>
+                  <div className="w-12 h-[1px] bg-champagne md:w-8 md:group-hover:w-12 transition-all duration-500"></div>
                 </div>
               </div>
 
