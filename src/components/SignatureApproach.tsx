@@ -22,13 +22,9 @@ export default function SignatureApproach() {
           >
             <div className="absolute top-0 left-0 w-[85%] h-[85%] md:w-4/5 md:h-4/5 overflow-hidden shadow-2xl z-10">
               <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
-              <img
-                src="/assets/approachable_attorney_portrait_1773371982596.png"
-                alt="Kenneth A. Doggett Jr. or Senior Attorney"
-                className="w-full h-full object-cover saturate-75 hover:saturate-100 transition-all duration-[2s] scale-105 hover:scale-100"
-                referrerPolicy="no-referrer"
-                loading="lazy"
-              />
+              <div className="w-full h-full bg-gradient-to-br from-obsidian-light via-obsidian-muted to-obsidian flex items-center justify-center">
+                <span className="font-serif text-[8rem] text-champagne/10 select-none">D</span>
+              </div>
             </div>
 
             <motion.div

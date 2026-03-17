@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import PracticeArea from "./pages/PracticeArea";
 import About from "./pages/About";
 import Results from "./pages/Results";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 import ScrollToTop from "./components/ScrollToTop";
 
 import { motion, AnimatePresence } from "motion/react";
@@ -77,6 +79,10 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/practice/:id" element={<PracticeArea />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/results" element={<Results />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<Terms />} />
             </Routes>
           </main>
           <Footer />

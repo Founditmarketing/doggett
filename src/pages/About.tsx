@@ -7,12 +7,10 @@ export default function About() {
       {/* Cinematic Hero Header */}
       <div className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden mb-32 border-b border-white/5">
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/40 z-10 mix-blend-multiply"></div>
-        <motion.img
+        <motion.div
           animate={{ scale: [1, 1.1] }}
           transition={{ duration: 25, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-          src="/assets/approachable_attorney_portrait_1773371982596.png"
-          alt="Kenneth A. Doggett, Jr."
-          className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 origin-center"
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-obsidian-light via-obsidian-muted to-obsidian opacity-40 origin-center"
         />
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-6 text-center">
           <div className="flex items-center gap-6 mb-8">
@@ -68,8 +66,8 @@ export default function About() {
 
             <div className="relative z-10 flex flex-col lg:flex-row gap-16">
               <div className="lg:w-2/5 flex flex-col items-start">
-                <div className="w-24 h-32 bg-obsidian border border-white/10 mb-8 p-1">
-                  <img src="/assets/approachable_attorney_portrait_1773371982596.png" alt="Kenneth" className="w-full h-full object-cover grayscale mix-blend-luminosity brightness-75"/>
+                <div className="w-24 h-32 bg-obsidian border border-white/10 mb-8 p-1 flex items-center justify-center">
+                  <span className="font-serif text-3xl text-champagne/20 select-none">D</span>
                 </div>
                 <h3 className="text-3xl font-serif text-white mb-2">Kenneth A. Doggett, Jr.</h3>
                 <p className="text-sm uppercase tracking-widest text-champagne font-medium mb-8">Lead Litigation Counsel</p>
