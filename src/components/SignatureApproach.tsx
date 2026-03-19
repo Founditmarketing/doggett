@@ -109,20 +109,16 @@ export default function SignatureApproach() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-24 md:h-20 w-full min-h-[96px] max-w-[300px] mb-2 cursor-pointer mix-blend-screen flex items-center">
-                <motion.div
-                  initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
-                  whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+              <div className="relative h-32 md:h-40 w-full min-h-[130px] max-w-[400px] mb-4 flex items-center">
+                <motion.img
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "50px" }}
-                  transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                  className="w-full h-full relative"
-                >
-                  <img 
-                    src="/assets/signature.jpg" 
-                    alt="Kenneth Doggett Signature" 
-                    className="absolute inset-0 w-full h-full object-contain [filter:contrast(4)_brightness(0.6)] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]"
-                  />
-                </motion.div>
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  src="/assets/signature.jpg" 
+                  alt="Kenneth Doggett Signature" 
+                  className="w-full h-full object-cover rounded-sm shadow-md"
+                />
               </div>
               <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-alabaster/40 font-medium">Kenneth A. Doggett, Jr.</p>
             </motion.div>
