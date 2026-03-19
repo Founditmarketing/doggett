@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 export default function LocalSeo() {
   return (
     <section className="py-24 md:py-32 bg-obsidian-light relative overflow-hidden border-t border-white/5">
-      <div className="absolute inset-0 bg-[url('/assets/corthouse.jpeg')] bg-cover bg-center opacity-10 mix-blend-luminosity grayscale"></div>
+      <div className="absolute inset-0 bg-[url('/assets/kenneth_and_dad_walking.jpg')] bg-cover bg-center opacity-10 mix-blend-luminosity grayscale"></div>
       
       <div className="max-w-screen-xl mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center gap-16">
         <motion.div 
@@ -45,9 +45,9 @@ export default function LocalSeo() {
           <div className="absolute inset-0 border border-white/10 p-2">
             <div className="w-full h-full relative overflow-hidden bg-obsidian border border-white/5">
               <img 
-                src="/assets/corthouse.jpeg" 
-                alt="Alexandria Louisiana Courthouse District" 
-                className="w-full h-full object-cover opacity-60 hover:opacity-80 transition-opacity duration-700 hover:scale-105"
+                src="/assets/kenneth_and_dad_walking.jpg" 
+                alt="Kenneth and his dad walking in Central Louisiana" 
+                className="w-full h-full object-cover grayscale contrast-125 mix-blend-luminosity opacity-80 hover:opacity-100 transition-all duration-700 hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent"></div>
