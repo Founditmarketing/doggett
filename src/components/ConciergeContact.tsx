@@ -253,7 +253,7 @@ export default function ConciergeContact() {
                     />
                   </div>
                   <p className="text-[10px] text-alabaster/30 leading-relaxed max-w-2xl font-light">
-                    * By submitting this inquiry, you acknowledge that transmission of information does not create an attorney-client relationship. Do not submit sensitive or classified materials via this initial form.
+                    * By submitting this inquiry, you acknowledge that transmission of information does not create an attorney-client relationship. Do not submit sensitive or classified materials via this initial form. By providing your telephone number and submitting this form, you are consenting to be contacted by SMS text message from Doggett Law Firm. Message frequency may vary. Message &amp; data rates may apply. Reply STOP to opt-out of further messaging. Reply HELP for more information. View our <a href="/privacy" className="underline underline-offset-2 hover:text-champagne transition-colors">Privacy Policy</a> and <a href="/terms" className="underline underline-offset-2 hover:text-champagne transition-colors">Terms Conditions</a>.
                   </p>
 
                   <div className="flex justify-between items-center pt-8">
