@@ -22,8 +22,8 @@ export default function SignatureApproach() {
           >
             <div className="absolute top-0 left-0 w-[85%] h-[85%] md:w-4/5 md:h-4/5 overflow-hidden shadow-2xl z-10">
               <div className="absolute inset-0 bg-obsidian/20 mix-blend-multiply z-10 border border-white/5"></div>
-              <div className="w-full h-full bg-gradient-to-br from-obsidian-light via-obsidian-muted to-obsidian flex items-center justify-center">
-                <span className="font-serif text-[8rem] text-champagne/10 select-none">D</span>
+              <div className="w-full h-full bg-obsidian flex items-center justify-center relative">
+                <img src="/assets/kendogheadshot-8581.JPEG" alt="Kenneth A. Doggett, Jr." className="absolute inset-0 w-full h-full object-cover grayscale mix-blend-luminosity brightness-75 contrast-125" />
               </div>
             </div>
 
