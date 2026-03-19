@@ -109,38 +109,19 @@ export default function SignatureApproach() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-24 md:h-20 w-full min-h-[96px] max-w-[300px] mb-2 cursor-pointer group flex items-center">
-                <svg viewBox="0 -20 400 160" className="w-full h-full stroke-champagne md:stroke-champagne/80 group-hover:stroke-champagne transition-colors duration-500 fill-none stroke-[4px] md:stroke-[2px] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] md:drop-shadow-none" strokeLinecap="round" strokeLinejoin="round">
-                  {/* MOBILE FALLBACK (Pure CSS) */}
-                  <path
-                    className="md:hidden animate-signature-draw"
-                    d="M 30,20 C 20,40 15,90 25,100 C 35,110 40,80 50,70 C 60,60 90,40 70,30 C 50,20 40,50 60,100 C 70,110 80,90 85,80 M 100,90 L 100,92 M 120,80 C 130,50 140,50 150,90 C 155,100 145,100 135,100 C 120,100 125,70 145,70 C 155,70 160,90 170,100 M 180,95 L 180,97"
-                  />
-                  <path
-                    className="md:hidden animate-signature-draw"
-                    d="M 200,40 C 180,40 180,100 200,100 C 220,100 230,80 230,40 C 230,20 200,20 190,40 C 180,60 180,90 200,100 M 235,100 C 245,80 255,80 250,60 C 245,40 230,60 230,80 C 230,100 245,100 255,90 M 265,100 C 275,80 290,40 280,30 C 270,20 250,50 250,90 C 250,130 270,140 280,110 C 290,80 300,50 310,50 C 330,50 320,100 330,120 C 340,140 360,110 370,80 M 270,40 L 320,30 M 340,60 C 350,60 350,100 360,100 C 370,100 370,60 380,60 C 390,60 390,100 400,100"
-                    style={{ animationDelay: '1s' }}
-                  />
-
-                  {/* DESKTOP (Framer Motion) */}
-                  <motion.path
-                    className="hidden md:block"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true, margin: "50px" }}
-                    transition={{ duration: 1.5, ease: [0.33, 1, 0.68, 1], delay: 1 }}
-                    d="M 30,20 C 20,40 15,90 25,100 C 35,110 40,80 50,70 C 60,60 90,40 70,30 C 50,20 40,50 60,100 C 70,110 80,90 85,80 M 100,90 L 100,92 M 120,80 C 130,50 140,50 150,90 C 155,100 145,100 135,100 C 120,100 125,70 145,70 C 155,70 160,90 170,100 M 180,95 L 180,97"
-                  />
-                  <motion.path
-                    className="hidden md:block"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true, margin: "50px" }}
-                    transition={{ duration: 2.5, ease: [0.33, 1, 0.68, 1], delay: 2.2 }}
-                    d="M 200,40 C 180,40 180,100 200,100 C 220,100 230,80 230,40 C 230,20 200,20 190,40 C 180,60 180,90 200,100 M 235,100 C 245,80 255,80 250,60 C 245,40 230,60 230,80 C 230,100 245,100 255,90 M 265,100 C 275,80 290,40 280,30 C 270,20 250,50 250,90 C 250,130 270,140 280,110 C 290,80 300,50 310,50 C 330,50 320,100 330,120 C 340,140 360,110 370,80 M 270,40 L 320,30 M 340,60 C 350,60 350,100 360,100 C 370,100 370,60 380,60 C 390,60 390,100 400,100"
-                  />
-                </svg>
-              </div>
+              <motion.div 
+                initial={{ opacity: 0, filter: "brightness(0)" }}
+                whileInView={{ opacity: 1, filter: "brightness(1.5)" }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="relative h-24 md:h-20 w-full min-h-[96px] max-w-[300px] mb-2 cursor-pointer mix-blend-screen flex items-center"
+              >
+                <img 
+                  src="/assets/signature.jpg" 
+                  alt="Kenneth Doggett Signature" 
+                  className="w-full h-full object-contain"
+                />
+              </motion.div>
               <p className="mt-6 text-[11px] uppercase tracking-[0.2em] font-sans text-alabaster/40 font-medium">Kenneth A. Doggett, Jr.</p>
             </motion.div>
           </div>
