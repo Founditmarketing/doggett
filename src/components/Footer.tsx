@@ -76,12 +76,6 @@ export default function Footer() {
                   The Firm (About)
                 </Link>
               </li>
-              <li>
-                <Link to="/results" className="hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-4 h-[1px] bg-champagne/30 group-hover:bg-champagne transition-colors"></span>
-                  Decisive Victories
-                </Link>
-              </li>
             </ul>
           </div>
 

@@ -54,7 +54,6 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-10">
             {[
               { label: "Expertise", path: "/#expertise" },
-              { label: "Results", path: "/results" },
               { label: "The Firm", path: "/about" },
               { label: "Contact", path: "/#contact" }
             ].map((item) => (
@@ -113,7 +112,6 @@ export default function Navbar() {
             <div className="flex flex-col items-center gap-8 z-10">
               {[
                 { label: "Expertise", path: "/#expertise" },
-                { label: "Results", path: "/results" },
                 { label: "The Firm", path: "/about" },
                 { label: "Contact", path: "/#contact" }
               ].map((item, i) => (
