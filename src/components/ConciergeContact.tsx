@@ -3,6 +3,8 @@ import { useState } from "react";
 
 export default function ConciergeContact() {
   const [step, setStep] = useState(1);
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -256,29 +258,52 @@ export default function ConciergeContact() {
                     * By submitting this inquiry, you acknowledge that transmission of information does not create an attorney-client relationship. Do not submit sensitive or classified materials via this initial form. By providing your telephone number and submitting this form, you are consenting to be contacted by SMS text message from Doggett Law Firm. Message frequency may vary. Message &amp; data rates may apply. Reply STOP to opt-out of further messaging. Reply HELP for more information. View our <a href="/privacy" className="underline underline-offset-2 hover:text-champagne transition-colors">Privacy Policy</a> and <a href="/terms" className="underline underline-offset-2 hover:text-champagne transition-colors">Terms Conditions</a>.
                   </p>
 
+                  {sendError && (
+                    <p className="text-red-400 text-xs font-light">{sendError}</p>
+                  )}
+
                   <div className="flex justify-between items-center pt-8">
                     <button
                       onClick={() => navigate(2)}
                       className="text-[10px] uppercase tracking-widest text-alabaster-muted hover:text-white transition-colors"
+                      disabled={isSending}
                     >
                       &larr; Return
                     </button>
                     <button
-                      onClick={() => {
-                        alert("Message Sent. A member of our team will contact you shortly.");
-                        navigate(1);
-                        setFormData({
-                          name: "",
-                          email: "",
-                          phone: "",
-                          preferredContact: "phone",
-                          inquiryType: "",
-                          details: ""
-                        });
+                      onClick={async () => {
+                        setIsSending(true);
+                        setSendError("");
+                        try {
+                          const res = await fetch("/api/send-email", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(formData),
+                          });
+                          const data = await res.json();
+                          if (!res.ok) {
+                            throw new Error(data.error || "Failed to send message");
+                          }
+                          alert("Message Sent. A member of our team will contact you shortly.");
+                          navigate(1);
+                          setFormData({
+                            name: "",
+                            email: "",
+                            phone: "",
+                            preferredContact: "phone",
+                            inquiryType: "",
+                            details: ""
+                          });
+                        } catch (err: any) {
+                          setSendError(err.message || "Failed to send your message. Please try again.");
+                        } finally {
+                          setIsSending(false);
+                        }
                       }}
-                      className="px-10 py-4 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)]"
+                      disabled={isSending}
+                      className="px-10 py-4 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {isSending ? "Sending..." : "Send Message"}
                     </button>
                   </div>
                 </motion.div>
