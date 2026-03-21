@@ -66,9 +66,7 @@ export default function About() {
 
             <div className="relative z-10 flex flex-col lg:flex-row gap-16">
               <div className="lg:w-2/5 flex flex-col items-start">
-                <div className="w-24 h-32 bg-obsidian border border-white/10 mb-8 p-1 overflow-hidden relative">
-                  <img src="/assets/HEADSHOT.jpg" alt="Kenneth" className="absolute top-0 left-0 w-full h-full object-cover grayscale mix-blend-luminosity brightness-75 -rotate-90 scale-[1.5] contrast-125"/>
-                </div>
+
                 <h3 className="text-3xl font-serif text-white mb-2">Kenneth A. Doggett, Jr.</h3>
                 <p className="text-sm uppercase tracking-widest text-champagne font-medium mb-8">Lead Litigation Counsel</p>
                 
