@@ -1,0 +1,105 @@
+import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+
+export default function Footer() {
+  return (
+    <footer className="bg-obsidian pt-32 pb-12 border-t border-white/5 relative overflow-hidden">
+      {/* Subtle Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-champagne/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24">
+
+          {/* Brand Column */}
+          <div className="md:col-span-5 lg:col-span-4">
+            <div className="flex items-center gap-3 mb-8 cursor-pointer group">
+              <div className="w-12 h-12 border border-champagne/30 group-hover:border-champagne flex items-center justify-center transition-colors duration-500">
+                <span className="font-serif text-3xl leading-none text-champagne">D</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-2xl tracking-[0.2em] uppercase text-alabaster leading-none">
+                  Doggett
+                </span>
+                <span className="text-[0.65rem] tracking-[0.3em] uppercase leading-none mt-1.5 text-alabaster-muted">
+                  Law Firm
+                </span>
+              </div>
+            </div>
+            <p className="text-alabaster-muted leading-relaxed font-light mb-8 max-w-sm text-sm">
+              Doggett Law is a local third generation law practice that provides quality legal representation throughout all of CENLA.
+            </p>
+            <a
+              href="tel:3188883644"
+              className="inline-block border-b border-champagne text-champagne hover:text-white hover:border-white transition-colors pb-1 tracking-widest uppercase text-sm"
+            >
+              Call (318) 888-3644
+            </a>
+          </div>
+
+          {/* Spacer */}
+          <div className="hidden lg:block lg:col-span-2"></div>
+
+          {/* Contact Column */}
+          <div className="md:col-span-3 lg:col-span-3">
+            <h4 className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-8 font-medium">Headquarters</h4>
+            <address className="not-italic flex flex-col gap-4 text-alabaster-muted font-light">
+              <p>1100 Martin Luther King Drive<br />Suite A<br />Alexandria, LA 71301</p>
+              <a href="mailto:kenneth@doggettlaw.net" className="hover:text-champagne transition-colors w-fit">kenneth@doggettlaw.net</a>
+            </address>
+          </div>
+
+          {/* Links Column */}
+          <div className="md:col-span-4 lg:col-span-3">
+            <h4 className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-8 font-medium">Focus Areas</h4>
+            <ul className="flex flex-col gap-4 text-alabaster-muted font-light">
+              <li>
+                <Link to="/#expertise" className="hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-4 h-[1px] bg-champagne/30 group-hover:bg-champagne transition-colors"></span>
+                  Personal Injury
+                </Link>
+              </li>
+              <li>
+                <Link to="/#expertise" className="hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-4 h-[1px] bg-champagne/30 group-hover:bg-champagne transition-colors"></span>
+                  Family Law
+                </Link>
+              </li>
+              <li>
+                <Link to="/#expertise" className="hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-4 h-[1px] bg-champagne/30 group-hover:bg-champagne transition-colors"></span>
+                  Succession Litigation
+                </Link>
+              </li>
+              <li className="pt-2 mt-2 border-t border-white/5">
+                <Link to="/about" className="hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-4 h-[1px] bg-champagne/30 group-hover:bg-champagne transition-colors"></span>
+                  The Firm (About)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* SEO Text Block */}
+        <div className="pt-8 mb-8 border-t border-white/5">
+          <p className="text-[10px] sm:text-xs text-alabaster-muted/40 font-light leading-relaxed max-w-5xl mx-auto text-center">
+            Based in Alexandria, Doggett Law proudly serves families and individuals across Central Louisiana—including Rapides, Grant, and Avoyelles Parishes—with unwavering dedication. Whether you are navigating a life-altering injury, a complex high-net-worth divorce, or a contested family succession, I am committed to protecting what matters most to you. I approach every matter with the strategic precision and aggressive advocacy necessary to secure the decisive outcome you deserve.
+          </p>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[11px] uppercase tracking-widest text-alabaster-muted/50 font-light">
+          <p>&copy; {new Date().getFullYear()} Doggett Law Firm. All Rights Reserved.</p>
+          <div className="flex flex-wrap justify-center gap-8">
+            <Link to="/privacy" className="hover:text-champagne transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-champagne transition-colors">Terms &amp; Conditions</Link>
+            <a href="https://www.linkedin.com/in/kenneth-doggett-54036720a/" target="_blank" rel="noreferrer" className="hover:text-champagne transition-colors">LinkedIn</a>
+            <a href="https://www.facebook.com/doggettlaw" target="_blank" rel="noreferrer" className="hover:text-champagne transition-colors">Facebook</a>
+            <a href="https://www.instagram.com/kennethadoggett/" target="_blank" rel="noreferrer" className="hover:text-champagne transition-colors">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
