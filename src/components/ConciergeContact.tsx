@@ -12,7 +12,8 @@ export default function ConciergeContact() {
     phone: "",
     preferredContact: "phone",
     inquiryType: "",
-    details: ""
+    details: "",
+    smsOptIn: false
   });
 
   const handleNext = () => setStep(step + 1);
@@ -255,8 +256,46 @@ export default function ConciergeContact() {
                       placeholder="Please delineate your situation..."
                     />
                   </div>
-                  <p className="text-[10px] text-alabaster/30 leading-relaxed max-w-2xl font-light">
-                    * By submitting this inquiry, you acknowledge that transmission of information does not create an attorney-client relationship. Do not submit sensitive or classified materials via this initial form. By providing your telephone number and submitting this form, you are consenting to be contacted by SMS text message from Doggett Law Firm. Message frequency may vary. Message &amp; data rates may apply. Reply STOP to opt-out of further messaging. Reply HELP for more information. View our <Link to="/privacy" className="underline underline-offset-2 hover:text-champagne transition-colors">Privacy Policy</Link> and <Link to="/terms" className="underline underline-offset-2 hover:text-champagne transition-colors">Terms Conditions</Link>.
+
+                  {/* SMS Opt-In */}
+                  <div className="border border-white/10 bg-white/[0.03] p-5 rounded-sm">
+                    <label className="flex items-start gap-4 cursor-pointer group">
+                      <div className="relative mt-0.5 shrink-0">
+                        <input
+                          id="sms-opt-in"
+                          type="checkbox"
+                          className="sr-only peer"
+                          checked={formData.smsOptIn}
+                          onChange={(e) => setFormData({ ...formData, smsOptIn: e.target.checked })}
+                        />
+                        <div className="w-5 h-5 border border-white/30 peer-checked:border-champagne peer-checked:bg-champagne/10 transition-all duration-200 flex items-center justify-center">
+                          {formData.smsOptIn && (
+                            <svg className="w-3 h-3 text-champagne" viewBox="0 0 12 12" fill="none">
+                              <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
+                      <span className="text-[11px] text-alabaster/70 font-light leading-relaxed">
+                        <strong className="text-white font-medium">SMS Opt-In:</strong> By checking this box, you consent to receive text messages from Doggett Law Firm regarding appointments, case coordination, and administrative communications. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out at any time. Reply HELP for support.{" "}
+                        <Link
+                          to="/privacy"
+                          className="text-champagne hover:text-white underline underline-offset-2 transition-colors"
+                        >
+                          Privacy Policy
+                        </Link>{" "}|{" "}
+                        <Link
+                          to="/terms"
+                          className="text-champagne hover:text-white underline underline-offset-2 transition-colors"
+                        >
+                          SMS Terms
+                        </Link>
+                      </span>
+                    </label>
+                  </div>
+
+                  <p className="text-[10px] text-alabaster/30 leading-relaxed font-light">
+                    * By submitting this inquiry, you acknowledge that transmission of information does not create an attorney-client relationship. Do not submit sensitive or classified materials via this initial form.
                   </p>
 
                   {sendError && (
@@ -293,7 +332,8 @@ export default function ConciergeContact() {
                             phone: "",
                             preferredContact: "phone",
                             inquiryType: "",
-                            details: ""
+                            details: "",
+                            smsOptIn: false
                           });
                         } catch (err: any) {
                           setSendError(err.message || "Failed to send your message. Please try again.");
@@ -301,7 +341,7 @@ export default function ConciergeContact() {
                           setIsSending(false);
                         }
                       }}
-                      disabled={isSending}
+                      disabled={isSending || !formData.smsOptIn}
                       className="px-10 py-4 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSending ? "Sending..." : "Send Message"}
