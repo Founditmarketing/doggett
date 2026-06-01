@@ -172,8 +172,8 @@ export default function PrivacyPolicy() {
             </p>
             <div className="bg-white/[0.03] border border-white/10 p-8">
               <p className="text-white font-medium mb-1">Doggett Law Firm</p>
-              <p className="text-alabaster-muted font-light">1100 Martin Luther King Drive, Suite A</p>
-              <p className="text-alabaster-muted font-light mb-4">Alexandria, LA 71301</p>
+              <p className="text-alabaster-muted font-light">1254 Dorchester Drive</p>
+              <p className="text-alabaster-muted font-light mb-4">Alexandria, LA 71303</p>
               <p className="text-alabaster-muted font-light">
                 Phone: <a href="tel:3188883644" className="text-champagne hover:text-white transition-colors">(318) 888-3644</a>
               </p>
