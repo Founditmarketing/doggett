@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="md:col-span-3 lg:col-span-3">
             <h4 className="text-[10px] uppercase tracking-[0.2em] text-champagne mb-8 font-medium">Headquarters</h4>
             <address className="not-italic flex flex-col gap-4 text-alabaster-muted font-light">
-              <p>1100 Martin Luther King Drive<br />Suite A<br />Alexandria, LA 71301</p>
+              <p>1254 Dorchester Drive<br />Alexandria, LA 71303</p>
               <a href="mailto:kenneth@doggettlaw.net" className="hover:text-champagne transition-colors w-fit">kenneth@doggettlaw.net</a>
             </address>
           </div>
