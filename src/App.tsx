@@ -12,6 +12,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { ReactLenis } from "lenis/react";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +29,7 @@ export default function App() {
 
   const content = (
     <div className="min-h-screen bg-obsidian text-alabaster selection:bg-champagne selection:text-obsidian">
+      <Analytics />
 
       {/* Cinematic Preloader */}
       <AnimatePresence>
