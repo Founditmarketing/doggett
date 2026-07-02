@@ -315,10 +315,15 @@ export default function ConciergeContact() {
                         setIsSending(true);
                         setSendError("");
                         try {
-                          const res = await fetch("/api/send-email", {
+                          const res = await fetch("https://www.founditos.com/api/contact-form/f4d7b79a-865a-43bb-8c29-ed7acd19f896", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(formData),
+                            body: JSON.stringify({
+                              name: formData.name,
+                              email: formData.email,
+                              phone: formData.phone,
+                              message: `Inquiry: ${formData.inquiryType}\nPreferred Contact: ${formData.preferredContact}\nSMS Opt-in: ${formData.smsOptIn ? 'Yes' : 'No'}\n\n${formData.details}`,
+                            }),
                           });
                           const data = await res.json();
                           if (!res.ok) {
