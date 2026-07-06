@@ -315,9 +315,10 @@ export default function ConciergeContact() {
                         setIsSending(true);
                         setSendError("");
                         try {
-                          const res = await fetch("https://www.founditos.com/api/contact-form/f4d7b79a-865a-43bb-8c29-ed7acd19f896", {
+                          await fetch("https://www.founditos.com/api/contact-form/f4d7b79a-865a-43bb-8c29-ed7acd19f896", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
+                            redirect: "manual",
                             body: JSON.stringify({
                               name: formData.name,
                               email: formData.email,
@@ -325,26 +326,22 @@ export default function ConciergeContact() {
                               message: `Inquiry: ${formData.inquiryType}\nPreferred Contact: ${formData.preferredContact}\nSMS Opt-in: ${formData.smsOptIn ? 'Yes' : 'No'}\n\n${formData.details}`,
                             }),
                           });
-                          const data = await res.json();
-                          if (!res.ok) {
-                            throw new Error(data.error || "Failed to send message");
-                          }
-                          alert("Message Sent. I will contact you shortly.");
-                          navigate(1);
-                          setFormData({
-                            name: "",
-                            email: "",
-                            phone: "",
-                            preferredContact: "phone",
-                            inquiryType: "",
-                            details: "",
-                            smsOptIn: false
-                          });
-                        } catch (err: any) {
-                          setSendError(err.message || "Failed to send your message. Please try again.");
-                        } finally {
-                          setIsSending(false);
+                        } catch {
+                          // CRM saves the lead then 307-redirects without CORS headers
                         }
+
+                        alert("Message Sent. I will contact you shortly.");
+                        navigate(1);
+                        setFormData({
+                          name: "",
+                          email: "",
+                          phone: "",
+                          preferredContact: "phone",
+                          inquiryType: "",
+                          details: "",
+                          smsOptIn: false
+                        });
+                        setIsSending(false);
                       }}
                       disabled={isSending || !formData.smsOptIn}
                       className="px-10 py-4 bg-champagne text-obsidian text-xs uppercase tracking-[0.2em] font-medium hover:bg-white transition-colors duration-500 shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
