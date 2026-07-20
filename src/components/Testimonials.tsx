@@ -20,6 +20,17 @@ const testimonials = [
     }
 ];
 
+const reviewSchema = {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Doggett Law Firm",
+    "review": testimonials.map((t) => ({
+        "@type": "Review",
+        "reviewBody": t.quote,
+        "author": { "@type": "Person", "name": t.author },
+    })),
+};
+
 export default function Testimonials() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -40,6 +51,7 @@ export default function Testimonials() {
 
     return (
         <section className="py-16 md:py-20 bg-obsidian-light relative overflow-hidden border-t border-white/5">
+            <script type="application/ld+json">{JSON.stringify(reviewSchema)}</script>
             <div className="absolute inset-0 bg-[url('/assets/marble_columns_abstract_1773364755886.png')] bg-cover bg-center opacity-5 mix-blend-luminosity"></div>
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">

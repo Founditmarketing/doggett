@@ -2,12 +2,15 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import SplitText from "../components/animations/SplitText";
+import PageSEO, { SITE_URL } from "../components/PageSEO";
 
 const practiceData: Record<string, any> = {
     "personal-injury": {
         title: "Personal Injury",
         subtitle: "Unflinching Advocacy for the Injured",
         heroImage: "/assets/practice_personal_injury_1773349744037.png",
+        metaTitle: "Personal Injury Lawyer Alexandria, LA | Doggett Law Firm",
+        metaDescription: "Aggressive, meticulous representation for catastrophic car and trucking accidents, offshore accidents, slip and falls, and dog bites in Alexandria, Louisiana.",
         overview: "If you are hurt in a car wreck or any other way through someone else’s carelessness, things can change in a split second. My approach to Personal Injury litigation is aggressive, meticulous, and entirely unflinching. I handle catastrophic car and trucking accidents, offshore accidents, severe slip and falls, dog bites, and special victim representation.",
         process: [
             { step: "Immediate Investigation", desc: "I deploy forensic teams to secure crucial evidence before it disappears or gets covered up by corporate defense." },
@@ -21,6 +24,8 @@ const practiceData: Record<string, any> = {
         title: "Family Law",
         subtitle: "Protecting Your Legacy and Bloodline",
         heroImage: "/assets/practice_family_law_1773349757645.png",
+        metaTitle: "Family Law Attorney Alexandria, LA | Doggett Law Firm",
+        metaDescription: "Tactical, discreet representation for high-net-worth divorce, complex custody disputes, and asset division in Alexandria, Louisiana.",
         overview: "High net-worth divorces and complex custody disputes require discretion, tactical precision, and an ironclad understanding of asset division. I protect your privacy, your children, and your financial legacy with unwavering loyalty. I handle complex business valuations, hidden assets, and severe litigation with a composed hostility that ensures your empire remains intact.",
         process: [
             { step: "Strategic Assessment", desc: "A confidential mapping of all marital assets, business interests, and custody leverage points." },
@@ -34,6 +39,8 @@ const practiceData: Record<string, any> = {
         title: "Succession Law",
         subtitle: "Preserving the Aristocratic Estate",
         heroImage: "/assets/practice_succession_1773349772080.png",
+        metaTitle: "Succession & Estate Planning Attorney Alexandria, LA | Doggett Law Firm",
+        metaDescription: "Sophisticated succession planning, trust formulation, and probate litigation to preserve your estate under Louisiana's forced heirship laws.",
         overview: "Creating a basic estate plan can save your family the burden of making important decisions after you pass away. Having a plan in place offers you the best chance of ensuring that your wishes regarding the distribution of your assets will be followed. I handle sophisticated succession planning, trust formulation, and probate litigation to ensure your legacy remains intact.",
         process: [
             { step: "Estate Auditing", desc: "Comprehensive review of all generational wealth, real estate, and active business interests." },
@@ -51,8 +58,31 @@ export default function PracticeArea() {
 
     if (!data) return <div className="min-h-screen flex items-center justify-center text-white">Area not found.</div>;
 
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": data.title,
+        "name": data.metaTitle,
+        "description": data.overview,
+        "provider": {
+            "@type": "LegalService",
+            "name": "Doggett Law Firm",
+            "url": SITE_URL
+        },
+        "areaServed": {
+            "@type": "State",
+            "name": "Louisiana"
+        }
+    };
+
     return (
         <div className="bg-obsidian min-h-screen text-alabaster pt-32 pb-24">
+            <PageSEO
+                path={`/practice/${id}`}
+                title={data.metaTitle}
+                description={data.metaDescription}
+                structuredData={serviceSchema}
+            />
             {/* Cinematic Hero Header */}
             <div className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden mb-32 border-b border-white/5">
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/40 z-10 mix-blend-multiply"></div>

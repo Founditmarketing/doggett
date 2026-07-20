@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import PageSEO from "../components/PageSEO";
 
 export default function Terms() {
   return (
     <div className="bg-obsidian min-h-screen text-alabaster pt-32 pb-24">
+      <PageSEO
+        path="/terms"
+        title="SMS Terms & Conditions | Doggett Law Firm"
+        description="Terms and conditions governing SMS messaging communications with Doggett Law Firm, including opt-in, opt-out, and message frequency details."
+      />
       {/* Header */}
       <div className="relative py-20 border-b border-white/5 mb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-champagne/5 to-transparent pointer-events-none" />
@@ -105,7 +111,7 @@ export default function Terms() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-champagne rounded-full mt-2.5 shrink-0" />
-                <span>Visit our website at <a href="https://doggettlaw.net" className="text-champagne hover:text-white transition-colors underline underline-offset-4">doggettlaw.net</a>.</span>
+                <span>Visit our website at <a href="https://www.doggettlaw.net" className="text-champagne hover:text-white transition-colors underline underline-offset-4">doggettlaw.net</a>.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-champagne rounded-full mt-2.5 shrink-0" />

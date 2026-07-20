@@ -1,10 +1,16 @@
 import { motion } from "motion/react";
 import { Award, Sword, Shield, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import PageSEO from "../components/PageSEO";
 
 export default function About() {
   return (
     <div className="bg-obsidian min-h-screen text-alabaster pt-32 pb-24">
+      <PageSEO
+        path="/about"
+        title="About Kenneth A. Doggett, Jr. | Doggett Law Firm"
+        description="Three generations of unflinching litigation in Alexandria, Louisiana. Meet Kenneth A. Doggett, Jr., third-generation elite trial lawyer handling personal injury, family law, and succession matters."
+      />
       {/* Cinematic Hero Header */}
       <div className="relative h-[60vh] md:h-[75vh] w-full overflow-hidden mb-32 border-b border-white/5">
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-obsidian/40 z-10 mix-blend-multiply"></div>

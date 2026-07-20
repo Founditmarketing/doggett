@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://doggettlaw.net/sitemap.xml
+Sitemap: https://www.doggettlaw.net/sitemap.xml

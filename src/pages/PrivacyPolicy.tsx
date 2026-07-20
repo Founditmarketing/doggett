@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import PageSEO from "../components/PageSEO";
 
 export default function PrivacyPolicy() {
   return (
     <div className="bg-obsidian min-h-screen text-alabaster pt-32 pb-24">
+      <PageSEO
+        path="/privacy"
+        title="Privacy Policy | Doggett Law Firm"
+        description="How Doggett Law Firm collects, uses, and protects personal information for clients and website visitors, including SMS messaging communications."
+      />
       {/* Header */}
       <div className="relative py-20 border-b border-white/5 mb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-champagne/5 to-transparent pointer-events-none" />
@@ -151,7 +157,7 @@ export default function PrivacyPolicy() {
               </li>
               <li className="flex items-start gap-3">
                 <span className="w-1.5 h-1.5 bg-champagne rounded-full mt-2.5 shrink-0" />
-                <span>Contact us for questions about SMS messaging by replying <strong className="text-white">HELP</strong> or visiting <a href="https://doggettlaw.net" className="text-champagne hover:text-white transition-colors underline underline-offset-4">doggettlaw.net</a>.</span>
+                <span>Contact us for questions about SMS messaging by replying <strong className="text-white">HELP</strong> or visiting <a href="https://www.doggettlaw.net" className="text-champagne hover:text-white transition-colors underline underline-offset-4">doggettlaw.net</a>.</span>
               </li>
             </ul>
           </section>
