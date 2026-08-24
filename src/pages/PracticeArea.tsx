@@ -18,7 +18,7 @@ const practiceData: Record<string, any> = {
             { step: "Aggressive Negotiation", desc: "Dismantling insurance company delay-and-deny tactics through overwhelming evidentiary leverage." },
             { step: "Trial Readiness", desc: "I prepare every case as if it will go to trial, which paradoxically forces the highest settlements." }
         ],
-        louisianaContext: "CRITICAL: Louisiana enforces one of the strictest statutes of limitations in the country. You possess exactly two years from the date of the incident to file a lawsuit in most injury cases. Furthermore, Louisiana follows a 'comparative fault' system, meaning insurance companies will forcefully attempt to blame you for your own injuries to reduce their payout. Do not speak to them without representation.",
+        louisianaContext: "CRITICAL: Louisiana enforces one of the strictest prescription windows in the country — as little as ONE year for injuries before July 1, 2024, and generally two years for injuries on or after that date. Assume the clock is already running. Furthermore, Louisiana follows a 'comparative fault' system, meaning insurance companies will forcefully attempt to blame you for your own injuries to reduce their payout. Do not speak to them without representation.",
     },
     "family-law": {
         title: "Family Law",
